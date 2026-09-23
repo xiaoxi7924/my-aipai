@@ -1,0 +1,1336 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+/**
+ * home/index/js/index.js
+ *
+ * $Revision: 60488 $
+ * $Date: 2013-09-25 14:50:29 +0800 (Wed, 25 Sep 2013) $
+ * $Author: chenjunqiang $
+ * =============
+ */
+var faceUrlOld = "https://web.archive.org/web/20131013151225/http://www.aipai.com/app/www/templates/comment/facem";
+var faceUrlNew = "https://web.archive.org/web/20131013151225/http://www.aipai.com/app/www/templates/comment/facei";
+
+var faceArray = {};
+faceArray[0] = {"key":"[we_laugh]","value":faceUrlOld+"/2.gif"};
+faceArray[1] = {"key":"[we_lol]","value":faceUrlOld+"/14.gif"};
+faceArray[2] = {"key":"[we_cool]","value":faceUrlOld+"/6.gif"};
+faceArray[3] = {"key":"[we_cry]","value":faceUrlOld+"/11.gif"};
+faceArray[4] = {"key":"[we_confuse]","value":faceUrlOld+"/21.gif"};
+faceArray[5] = {"key":"[we_angry]","value":faceUrlOld+"/7.gif"};
+faceArray[6] = {"key":"[we_horrify]","value":faceUrlOld+"/8.gif"};
+faceArray[7] = {"key":"[we_emb]","value":faceUrlOld+"/9.gif"};
+//faceArray[8] = {"key":"[we_shock]","value":faceUrlOld+"/12.gif"};
+faceArray[8] = {"key":"[we_love]","value":faceUrlOld+"/16.gif"};
+faceArray[9] = {"key":"[we_perspire]","value":faceUrlOld+"/17.gif"};
+faceArray[10] = {"key":"[we_yum]","value":faceUrlOld+"/18.gif"};
+faceArray[11] = {"key":"[we_kiss]","value":faceUrlOld+"/15.gif"};			
+faceArray[12] = {"key":"[we_noword]","value":faceUrlOld+"/24.gif"};
+faceArray[13] = {"key":"[we_like]","value":faceUrlOld+"/26.gif"};
+faceArray[14] = {"key":"[we_yeah]","value":faceUrlOld+"/29.gif"};
+faceArray[15] = {"key":"[we_adore]","value":faceUrlOld+"/33.gif"};
+faceArray[16] = {"key":"[we_faint]","value":faceUrlOld+"/34.gif"};
+faceArray[17] = {"key":"[we_flower]","value":faceUrlOld+"/45.gif"};
+faceArray[18] = {"key":"[we_heart]","value":faceUrlOld+"/52.gif"};
+faceArray[19] = {"key":"[we_ding]","value":faceUrlOld+"/56.gif"};
+//faceArray[20] = {"key":"[we_bad]","value":faceUrlOld+"/55.gif"};
+//new face
+faceArray[20] = {"key":"[o_exp34]","value":faceUrlNew+"/exp.gif"};    //因为要在前面加入一个新表情，只能把faceArrayCom[20]换为新表情。在一些用到这个表情的留言会受影响
+faceArray[21] = {"key":"[o_exp01]","value":faceUrlNew+"/exp01.gif"};
+faceArray[22] = {"key":"[o_exp20]","value":faceUrlNew+"/exp20.gif"};
+faceArray[23] = {"key":"[o_exp02]","value":faceUrlNew+"/exp02.gif"};
+faceArray[24] = {"key":"[o_exp03]","value":faceUrlNew+"/exp03.gif"};
+faceArray[25] = {"key":"[o_exp05]","value":faceUrlNew+"/exp05.gif"};
+faceArray[26] = {"key":"[o_exp06]","value":faceUrlNew+"/exp06.gif"};
+faceArray[27] = {"key":"[o_exp07]","value":faceUrlNew+"/exp07.gif"};
+faceArray[28] = {"key":"[o_exp08]","value":faceUrlNew+"/exp08.gif"};
+faceArray[29] = {"key":"[o_exp09]","value":faceUrlNew+"/exp09.gif"};
+faceArray[30] = {"key":"[o_exp10]","value":faceUrlNew+"/exp10.gif"};
+faceArray[31] = {"key":"[o_exp11]","value":faceUrlNew+"/exp11.gif"};
+faceArray[32] = {"key":"[o_exp12]","value":faceUrlNew+"/exp12.gif"};
+faceArray[33] = {"key":"[o_exp16]","value":faceUrlNew+"/exp16.gif"};
+faceArray[34] = {"key":"[o_exp17]","value":faceUrlNew+"/exp17.gif"};
+faceArray[35] = {"key":"[o_exp18]","value":faceUrlNew+"/exp18.gif"};
+faceArray[36] = {"key":"[o_exp19]","value":faceUrlNew+"/exp19.gif"};
+faceArray[37] = {"key":"[o_exp21]","value":faceUrlNew+"/exp21.gif"};
+faceArray[38] = {"key":"[o_exp22]","value":faceUrlNew+"/exp22.gif"};
+faceArray[39] = {"key":"[o_exp24]","value":faceUrlNew+"/exp24.gif"};
+faceArray[40] = {"key":"[o_exp33]","value":faceUrlNew+"/exp33.gif"};
+faceArray[41] = {"key":"[o_exp29]","value":faceUrlNew+"/exp29.gif"};
+faceArray[42] = {"key":"[o_exp30]","value":faceUrlNew+"/exp30.gif"};
+faceArray[43] = {"key":"[o_exp28]","value":faceUrlNew+"/exp28.gif"};
+faceArray[44] = {"key":"[o_exp32]","value":faceUrlNew+"/exp32.gif"};
+faceArray[45] = {"key":"[o_lei]","value":faceUrlNew+"/lei.gif"};
+faceArray[46] = {"key":"[o_jiong]","value":faceUrlNew+"/jiong.gif"};
+faceArray[47] = {"key":"[o_niub]","value":faceUrlNew+"/niub.gif"};
+faceArray[48] = {"key":"[o_cai]","value":faceUrlNew+"/cai.gif"};
+faceArray[49] = {"key":"[o_ifu]","value":faceUrlNew+"/ifu.gif"};
+faceArray[50] = {"key":"[o_da]","value":faceUrlNew+"/da.gif"};
+faceArray[51] = {"key":"[o_dalove]","value":faceUrlNew+"/dalove.gif"};
+
+
+var faceArrayCom = {};
+var faceUrlNew = "https://web.archive.org/web/20131013151225/http://www.aipai.com/app/www/templates/comment/facei";
+faceArrayCom[20] = {
+	"key": "[o_exp34]",
+	"value": faceUrlNew + "/exp.gif"
+}; //因为要在前面加入一个新表情，只能把faceArrayCom[20]换为新表情。在一些用到这个表情的留言会受影响
+faceArrayCom[21] = {
+	"key": "[o_exp01]",
+	"value": faceUrlNew + "/exp01.gif"
+};
+faceArrayCom[22] = {
+	"key": "[o_exp20]",
+	"value": faceUrlNew + "/exp20.gif"
+};
+faceArrayCom[23] = {
+	"key": "[o_exp02]",
+	"value": faceUrlNew + "/exp02.gif"
+};
+faceArrayCom[24] = {
+	"key": "[o_exp03]",
+	"value": faceUrlNew + "/exp03.gif"
+};
+faceArrayCom[25] = {
+	"key": "[o_exp05]",
+	"value": faceUrlNew + "/exp05.gif"
+};
+faceArrayCom[26] = {
+	"key": "[o_exp06]",
+	"value": faceUrlNew + "/exp06.gif"
+};
+faceArrayCom[27] = {
+	"key": "[o_exp07]",
+	"value": faceUrlNew + "/exp07.gif"
+};
+faceArrayCom[28] = {
+	"key": "[o_exp08]",
+	"value": faceUrlNew + "/exp08.gif"
+};
+faceArrayCom[29] = {
+	"key": "[o_exp09]",
+	"value": faceUrlNew + "/exp09.gif"
+};
+faceArrayCom[30] = {
+	"key": "[o_exp10]",
+	"value": faceUrlNew + "/exp10.gif"
+};
+faceArrayCom[31] = {
+	"key": "[o_exp11]",
+	"value": faceUrlNew + "/exp11.gif"
+};
+faceArrayCom[32] = {
+	"key": "[o_exp12]",
+	"value": faceUrlNew + "/exp12.gif"
+};
+faceArrayCom[33] = {
+	"key": "[o_exp16]",
+	"value": faceUrlNew + "/exp16.gif"
+};
+faceArrayCom[34] = {
+	"key": "[o_exp17]",
+	"value": faceUrlNew + "/exp17.gif"
+};
+faceArrayCom[35] = {
+	"key": "[o_exp18]",
+	"value": faceUrlNew + "/exp18.gif"
+};
+faceArrayCom[36] = {
+	"key": "[o_exp19]",
+	"value": faceUrlNew + "/exp19.gif"
+};
+faceArrayCom[37] = {
+	"key": "[o_exp21]",
+	"value": faceUrlNew + "/exp21.gif"
+};
+faceArrayCom[38] = {
+	"key": "[o_exp22]",
+	"value": faceUrlNew + "/exp22.gif"
+};
+faceArrayCom[39] = {
+	"key": "[o_exp24]",
+	"value": faceUrlNew + "/exp24.gif"
+};
+faceArrayCom[40] = {
+	"key": "[o_exp33]",
+	"value": faceUrlNew + "/exp33.gif"
+};
+faceArrayCom[41] = {
+	"key": "[o_exp29]",
+	"value": faceUrlNew + "/exp29.gif"
+};
+faceArrayCom[42] = {
+	"key": "[o_exp30]",
+	"value": faceUrlNew + "/exp30.gif"
+};
+faceArrayCom[43] = {
+	"key": "[o_exp28]",
+	"value": faceUrlNew + "/exp28.gif"
+};
+faceArrayCom[44] = {
+	"key": "[o_exp32]",
+	"value": faceUrlNew + "/exp32.gif"
+};
+faceArrayCom[45] = {
+	"key": "[o_lei]",
+	"value": faceUrlNew + "/lei.gif"
+};
+faceArrayCom[46] = {
+	"key": "[o_jiong]",
+	"value": faceUrlNew + "/jiong.gif"
+};
+faceArrayCom[47] = {
+	"key": "[o_niub]",
+	"value": faceUrlNew + "/niub.gif"
+};
+faceArrayCom[48] = {
+	"key": "[o_cai]",
+	"value": faceUrlNew + "/cai.gif"
+};
+faceArrayCom[49] = {
+	"key": "[o_ifu]",
+	"value": faceUrlNew + "/ifu.gif"
+};
+faceArrayCom[50] = {
+	"key": "[o_da]",
+	"value": faceUrlNew + "/da.gif"
+};
+faceArrayCom[51] = {
+	"key": "[o_dalove]",
+	"value": faceUrlNew + "/dalove.gif"
+};
+
+faceArrayCom[52] = {
+	"key": "[REWARD]",
+	"value": faceUrlNew + "/tgao.gif"
+};
+
+
+
+var Index = {
+    //初始化
+    init : function(){
+        var _ts = this,
+            bid = Cookies.get('b') || 0,
+            host = location.host;
+
+        //设置
+        _ts.config.host = host;
+        _ts.bid = bid;
+
+        //图片滚动加载
+        _ts.lazyloadImage();
+
+        //评论滚动加载
+        _ts.lazyloadCmt();
+        
+        //我的个人空间:操作区
+        _ts.mtOperate();
+
+        //我的个人空间:个人账户
+        _ts.modUpgrade();
+
+        //礼物区
+        _ts.modGift();
+
+        //我的个人空间:偶像动态
+        _ts.modActive.init();
+
+        //右侧用户信息
+        _ts.popUserInfo();
+
+        //右侧推荐
+        _ts.modRem();
+
+        //右侧认证信息
+        _ts.modAuth();
+
+         //发表日志
+        _ts.wordsLeft();
+
+         //发表留言
+        _ts.modCmt();
+
+        //加载广告
+        _ts.modgg();
+    },
+    config : {},
+    tools : {
+        //取数组
+        getArrayItems : function(arr, num){
+            var temp_array = new Array();
+            for (var index in arr) {
+                temp_array.push(arr[index]);
+            }
+            var return_array = new Array();
+            for (var i = 0; i<num; i++) {
+                if (temp_array.length>0) {
+                    var arrIndex = Math.floor(Math.random()*temp_array.length);
+                    return_array[i] = temp_array[arrIndex];
+                    temp_array.splice(arrIndex, 1);
+                } else {
+                    break;
+                }
+            }
+            return return_array;
+        },
+        comUBBCom : function(str, num) {
+            var _pIndex = str.indexOf('[P]');
+            if (_pIndex != - 1) {
+                //存在[P]标签的为用户发的评论,系统发的评论,如打赏，飞飞等不用处理
+                if (_pIndex != 0) {
+                    //有引用的情况
+                    var _thisQuote = str.substr(0, _pIndex);
+
+                    //处理引用里面的换行数
+                    var _thisReply = str.substr(_pIndex);
+
+                    str = _thisQuote + replaceBr(_thisReply);
+                }
+                else {
+                    str = replaceBr(str);
+                }
+            }
+
+            str = str.replace(/\[br\]/g, "<br/>");
+            //补回用户输入的空格
+            str = str.replace(/\[nb\]/g, "&nbsp;");
+
+            str = str.replace(/\[BR\]/g, "<br/>");
+            /*系统回车*/
+            str = str.replace(/\[T\]/g, "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"); //制表符
+            var len = str.split("[QUOTE]").length - 1;
+            str = str.replace(/\[QUOTE\]/g, "");
+
+            if (len > 0) {
+
+                for (i = 0; i < len; i++) {
+                    str = "[QUOTE]" + str;
+                }
+
+                str = "[QUOTE_W]" + str + "[/QUOTE_W]";
+            }
+
+            str = str.replace(/\[QUOTE_W\](.+?)\[\/QUOTE_W\]/ig, "<div class='cmt_quo_wrap'>$1</div>");
+
+            str = str.replace(/\[QUOTE\]/g, "<div class='cmt_quo'>");
+            str = str.replace(/\[\/QUOTE\]/g, "</div>");
+
+            str = str.replace(/\[QUOTE\](.+?)\[\/QUOTE\]/ig, "<div>$1</div>");
+            str = str.replace(/\[QUOTE_1\](.+?)\[\/QUOTE_1\]/ig, "<div class='cmt_quoti'>$1</div>");
+            str = str.replace(/\[QUOTE_2\](.+?)\[\/QUOTE_2\]/ig, "<div class='cmt_quocon'>$1</div>");
+            str = str.replace(/\[USER\=0\](.+?)\[\/USER\]/ig, "<span>$1</span>");
+            str = str.replace(/\[USER\=(.+?)\](.+?)\[\/USER\]/ig, "<span><a href=\"http://www.aipai.com/space.php?bid=$1\" target='_blank'>$2</a></span>");
+
+            str = str.replace(/\[PID\]([\d]+?)\[\/PID\]/ig, '<div class="cmt_quoact"><a id="cmt_prc$1_' + num + '" onclick="checkloginNew(replyComment2, {\'_t\':this, \'id\':$1}); return false;" href="#">回复</a></div>');
+
+            //str=str.replace(/\[PID\]([\d]+?)\[\/PID\]/ig,'');
+            str = str.replace(/\[TIME\](.+?)\[\/TIME\]/ig, getHumanTime);
+            str = str.replace(/\[P\](.+?)\[\/P\]/ig, "<P>$1</P>");
+            str = str.replace(/(\[URL\])+([^\[\<\r\n]+aipai\.com[^\[\<\r\n]+)(\[\/URL\])+/ig, "<a href=\"$2\" target='_blank'>$2</a>");
+            str = str.replace(/\[SYS\]/g, "");
+
+            str = str.replace(/\[REWARD_SPAN]/ig, "<span>");
+            str = str.replace(/\[\/REWARD_SPAN]/ig, "</span>");
+            str = str.replace(/\[REWARD_STRONG]/ig, "<strong>");
+            str = str.replace(/\[\/REWARD_STRONG]/ig, "</strong>");
+
+            str = str.replace(/\[REWARD_DIV]/ig, "<div class='dsTg'>");
+            str = str.replace(/\[\/REWARD_DIV]/ig, "</div>");
+            str = str.replace(/\[REWARD_P]/ig, "<p class='blank2em'>");
+            str = str.replace(/\[\/REWARD_P]/ig, "</p>");
+
+            //ROLL,时间点评论处理
+            str = str.replace(/\[r\](.+?)\[\/r\]/ig, "");
+            str = str.replace(/\[rollContent\](.+?)\[\/rollContent\]/ig, "<span class='cmt_red'>$1</span>");
+            str = str.replace(/\[r(.+?)\](.+?)\[\/r\]/ig, '\"$2\"');
+
+            //str=str.replace(/\[QUOTE_W\](.+?)\[\/QUOTE_W\]/ig,"<div class='cmt_quo_wrap'><div class='cmt_quo'>$1</div></div>");
+            //str=str.replace(/\[QUOTE\]/g,"<div class='cmt_quo'>");
+            //str=str.replace(/\[\/QUOTE\g,"</div>");
+            for (var j = 20; faceArrayCom[j] != undefined; j++) {
+                while (str.indexOf(faceArrayCom[j]['key']) > - 1) {
+                    str = str.replace(faceArrayCom[j]['key'], "<img src='" + faceArrayCom[j]["value"] + "' />");
+                }
+            }
+            return str;
+        }
+    },
+    //图片滚动加载
+    lazyloadImage : function(){
+        $("#mod_relation img[osrc]").lazyload({
+            failurelimit: 20,
+            threshold:"100"
+        });
+    },
+    //评论滚动加载
+    lazyloadCmt : function(){
+        $('#comment_output').html('<div class="cmt_con_loading"><img src="https://web.archive.org/web/20131013151225/http://home.aipai.com/app/www/templates/home/css/img/loading.gif" width="32" height="32" alt="loading..." /></div>');
+		$('#lazyload_cmt').lazyload({ 
+			threshold : '100',
+			type : 'fun',
+			fun : function(){
+				$.getScript('http://'+Index.config.host+'/app/www/templates/comment/js/comment_new_4.js');
+			}
+		});
+        
+    },
+    //我的个人空间:操作区
+    mtOperate : function(){
+        var _ts = this,
+            $el = $('#mt_operate');
+
+        //判断是否存在
+        if($el.size() <= 0){
+            return;
+        }
+
+        var $mto_nav = $el.find('.mto_nav'),       
+            $mto_bd = $el.find('.mto_bd'),      
+            $mtor_log = $el.find('.mtor_log'),
+            $btnFace = $mtor_log.find('.btn_face'),
+            $btnPost = $mtor_log.find('.btn_post'),
+            $bd_log = $el.find('.bd_log');
+            $bd_recommend = $el.find('.bd_recommend'),
+            $text = $bd_log.find('textarea');
+
+        //切换
+        $mto_nav.find('li i').click(function(){
+            var ref = $(this).attr('ref');
+            if(typeof ref !== 'undefined'){
+                $mto_nav.find('li').removeClass('cur');
+                $(this).parent().addClass('cur');
+                $mto_bd.find('.mto_bd_con').hide().end().find('.bd_'+ref).show();
+                if(ref === 'log'){
+                    $mtor_log.show();
+                }else{
+                    $mtor_log.hide();
+                }
+            }
+        });
+
+        //日志：表情
+        var _fht = null,
+            _fid = 'pop_face';
+        $btnFace.click(function(){
+            $(this).pop_dialog({
+                id : 'pop_face',
+                type : 'content',
+                width : 232,
+                height : 217,
+                top : 22,
+                left : -200,
+                content : $('#html_pop_face').html(),
+                afterShow : function(opt){
+                    var $pop = $('#'+opt.id);
+
+                    $pop.hover(function(){
+                        if(fht){clearTimeout(fht);}
+                    }, function(){
+                        fht = setTimeout(function(){
+                            $(this).pop_close(opt.id);
+                        }, 100)
+                    });
+
+                    $pop.find('img').click(function(){
+                        var ref = $(this).attr('ref'); 
+                        clickFacemini(ref);
+                    });
+                    
+                }
+            });
+        }).hover(function(){
+            if(fht){clearTimeout(fht);}
+        }, function(){
+            fht = setTimeout(function(){
+                $(this).pop_close(_fid);
+            }, 100)
+        });
+
+        //日志：输入框
+        $text.focus(function(){
+            var v = $.trim($(this).val());
+
+            if(v == '想说点什么……'){
+                $(this).val('').removeClass('gray');
+            }else if(v != ''){
+                 var v_con = v.replace(/[想说点什么……]/g,"");
+                 $(this).val(v_con);
+                 $(this).removeClass('gray');
+            }
+        }).blur(function(){
+            var v = $.trim($(this).val());
+            if(v.length == 0){
+                $(this).val('想说点什么……').addClass('gray');
+            }
+        });
+
+        //日志：发表日志
+        $btnPost.click(function(){
+            var content = $.trim($text.val());
+
+            if (content.length == 0 || content == '想说点什么……') {
+                $(this).pop_alert({
+                    msg : '请输入日志内容' 
+                });
+                $text.focus();
+            } else {
+                $text.val("");
+                var $el = $('#mt_operate'),
+                bid = _ts.bid,
+                Url = 'http://'+Index.config.host+'/space.php?',
+                metadatas = encodeURI("action=blog" + "&bid=" + bid + '&post=true' + '&comment='+ content + '&atoken=' + getActionToken());
+
+                $.ajax({
+                    type: "POST",
+                    url: Url,
+                    data: metadatas,
+                    dataType: 'json',
+                    success: function(ret) {
+                        var _ts = Index;
+
+                        //处理json字符串
+                        var content = ret['content'].substring(0, 28);
+                        //去除截取的半边表情
+                        var left = content.lastIndexOf("[");
+                        var right = content.lastIndexOf("]");
+
+                        //如果前面有[URL]则去掉
+                        if (content.substring(0, 5) == '[URL]') {
+                            content = content.substring(5, 28);
+                        }
+
+                        if (left > right) {
+                            ret['content'] = content.substring(0, left);
+                        } else {
+                            ret['content'] = content
+                        }
+
+                        if (ret['code'] == true) {
+
+                            $(this).pop_alert({
+                                msg : '日志发布成功！'
+                            });
+
+                            $el.next().remove();
+                            $el.after('<ul class="list_tcon"> <li class="news nobor"><p><a target="_blank" href="http://'+Index.config.host+'/space.php?action=blog" >'+_ts.tools.comUBBCom(ret['content'])+'</a><span class="new"></span></p></li> </ul>');
+
+                        } else {
+                            $(this).pop_alert({
+                                msg : '日志发布失败！'
+                            });
+                        }
+                    }
+                });
+            }
+            
+        });
+
+        //推荐
+        var $reInput = $bd_recommend.find('input'),
+            $closeRem = $bd_recommend.find('.close'),
+            $btnRem = $bd_recommend.find('.re_btn span'),
+            p = $reInput.val();
+
+        $reInput.attr('p', p).focus(function(){
+            var val = $.trim($(this).val());
+            if(val === '拍子号' || val === '将替换原有推荐的拍子'){
+                $(this).removeClass('gray').val('');
+            }
+        }).blur(function(){
+            var val = $.trim($(this).val());
+            if(val.length <= 0){
+                $(this).addClass('gray').val($(this).attr('p'));
+            }
+        }).keyup(function() {
+            var _this = $(this);
+            var reg = /^[1-9][0-9]*$/;
+            var value = _this.val();
+            if (!reg.test(value) && value != "") {
+                if (parseFloat(value)) {
+                    value = parseFloat(value).toString().substring(0, 8);
+                    _this.val(value);
+                } else {
+                    _this.val('');
+                }
+            } else {
+                value = value.substring(0, 8);
+                _this.val(value);
+            };
+        });
+
+        //推荐新人
+        $btnRem.click(function(){
+            var $re_box = $(this).parents('.re_box'),
+                $re_input = $re_box.find('input'),
+                $re_tips = $re_box.find('.tips'),
+                val = $.trim($re_input.val());
+
+            if(isNaN(val) || val.length < 4 || val === '拍子号' || val === '将替换原有推荐的拍子'){
+                $re_tips.html('请输入正确的拍子号！').show().hover(function(){
+                    $re_tips.hide();   
+                });
+                setTimeout(function(){
+                    $re_tips.hide();   
+                }, 3000);
+            }else{
+                checkloginNew(_ts.postRem,{"bid": val});
+            }
+        });
+
+        //取消对已有推荐人推荐
+        $closeRem.click(function(){
+            $(this).pop_confirm({
+                msg : '要取消对此人的推荐吗？',
+                confirm : function(){
+                    checkloginNew(_ts.closeRem);
+                    $(this).pop_close('pop_confirm');
+                }
+            });
+        });
+
+
+        //领取本月vip俸禄
+        var $btnFenglu = $mto_nav.find('.ico_m');
+        _ts.$btnFenglu = $btnFenglu;
+
+        $btnFenglu.click(function(){
+            var vipUrl = 'http://'+Index.config.host+'/app/www/apps/webVip.php?action=webVip&mod=getSalary',
+            metadata = '&callback=Index.fengluCb&atoken='+getActionToken();
+
+            $.ajax({
+                type:'GET',
+                url: vipUrl,
+                dataType:'jsonp',
+                data:metadata
+            });
+            
+        });
+    },
+    //推荐新人
+    postRem : function(opt){
+        var $el = $('#mt_operate'),
+            $bd_recommend = $el.find('.bd_recommend'),
+            bid = opt.bid,
+		    xinxiuurl = "http://"+Index.config.host+"/space.php",
+			metadatas = encodeURI("paizihao=" + bid + "&action=tuijian&sub=add&atoken=" + getActionToken());
+
+        $.ajax({
+            type: "POST",
+            url: xinxiuurl,
+            data: metadatas,
+            cache: false,
+            dataType: 'json',
+            success: function(msg) {
+                //成功
+                if (msg.type == 0) {
+                    //切换
+                    $bd_recommend.find('.bd_recon_had').find('a').attr('href', msg.msg.tuijianBestUser.url).attr('title', msg.msg.tuijianBestUser.nickname).html(msg.msg.tuijianBestUser.nickname);
+                    $bd_recommend.find('.bd_recon_had').show();
+                    $bd_recommend.find('.bd_recon_new').hide();
+                    
+                    //输出被新推荐人信息
+                    var html = '<div class="ws_hd"> <h5>推荐新秀</h5> </div> <div class="ws_bd"> <ul class="newuser_list"> <li> <a class="pic" target="_blank" href="' + msg.msg.tuijianBestUser.url + '"><img src="' + msg.msg.tuijianBestUser._48 + '" width="80" height="80" alt=""></a> <h5><a target="_blank" href="' + msg.msg.tuijianBestUser.url + '">' + msg.msg.tuijianBestUser.nickname + '</a></h5>  ';
+                    //提示
+                    $(this).pop_alert({
+                        msg : '新秀推荐成功！'
+                    });
+
+                    if (msg.msg.tuijianBestWork) {
+                        html += '<p>标榜作品：<a href="' + msg.msg.tuijianBestWork.url + '" target="_blank" title="' + msg.msg.tuijianBestWork.title + '">' + msg.msg.tuijianBestWork.title + '</a></p>';
+                    }
+                    else {
+                        html +=  '<p>最新作品：未设置</p>';
+                    }
+                    html = html + '</li> </ul> </div>';
+
+                    if($('#ws_newuser').size() > 0){
+                        $('#ws_newuser').html(html);
+                    }else{
+                        $('#mod_relation').find('.bd').prepend('<div id="ws_newuser" class="ws_mod ws_newuser">'+html+'</div>')
+                    }
+
+                } else if (msg.type == 1) {
+                    //被推荐人没有达到条件
+                    $(this).pop_alert({
+                        msg : '被推荐人必须满足以下条件：精华成就><strong>0</strong>，且创作成就&lt;<strong>200</strong>'
+                    });
+                }
+                else if (msg.type == 3) {
+                    //如果推荐的是自己
+                    $(this).pop_alert({
+                        msg : '不能推荐自己，请推荐其他新秀！'
+                    });
+                } else if (msg.type == 4) {
+                    //拍子号不存在或不正确
+                    $(this).pop_alert({
+                        msg : '拍子号不存在或不正确'
+                    });
+                } else {
+                    $(this).pop_alert({
+                        msg : msg.msg
+                    });
+                }
+            }
+        });
+    },
+    //取消对已有推荐人推荐
+    closeRem : function(){
+        var $el = $('#mt_operate'),
+            $bd_recommend = $el.find('.bd_recommend'),
+		    celurl = "http://"+Index.config.host+"/space.php",
+		    metadatas = encodeURI("action=tuijian&sub=del&atoken=" + getActionToken());
+
+		$.ajax({
+			type: 'POST',
+			url: celurl,
+			data: metadatas,
+			dataType: 'json',
+			success: function(msg) {
+				if (msg.type == 2) {
+					//成功取消推荐人
+                    $bd_recommend.find('.bd_recon_had').hide();
+                    $bd_recommend.find('.bd_recon_new').show();
+				}
+			}
+		});
+    },
+    //领取本月vip俸禄回调
+    fengluCb : function(ret){
+        var _ts = this,
+            $btnFenglu = _ts.$btnFenglu;        
+
+        if(ret['code'] === 1){
+            $btnFenglu.pop_dialog({
+                id : 'pop_fenglu', 
+                top : 20, 
+                left : -193, 
+                width : 270, 
+                height : 95, 
+                title : '我的俸禄', 
+                content : '<p class="suc">'+ret['msg']+'</p><div class="btn"><a href="https://web.archive.org/web/20131013151225/http://www.aipai.com/payManage.php?action=record" target="_blank" class="open"></a></div>',
+                afterShow : function(){
+                    $('#pop_fenglu').find('a').click(function(){
+                        $(this).pop_close("pop_fenglu");
+                    });
+                }
+            });	
+        }else if(ret['code'] === 1 || ret['code'] === 3){
+            $btnFenglu.pop_dialog({
+                id : 'pop_fenglu', 
+                top : 20, 
+                left : -193, 
+                width : 270, 
+                height : 95, 
+                title : '我的俸禄', 
+                content : '<p>'+ret['msg']+'</p><div class="btn"><a href="https://web.archive.org/web/20131013151225/http://www.aipai.com/payManage.php?action=record" target="_blank" class="open"></a></div>',
+                afterShow : function(){
+                    $('#pop_fenglu').find('a').click(function(){
+                        $(this).pop_close("pop_fenglu");
+                    });
+                }
+            });	
+        }else if(ret['code'] === 6){
+            $btnFenglu.pop_dialog({
+                id : 'pop_fenglu', 
+                top : 20, 
+                left : -193, 
+                width : 270, 
+                height : 95, 
+                title : '我的俸禄', 
+                content : '<p>'+ret['msg']+'</p><div class="btn"><a href="https://web.archive.org/web/20131013151225/http://www.aipai.com/aipaiVip.php?action=process" target="_blank"></a></div>',
+                afterShow : function(){
+                    $('#pop_fenglu').find('a').click(function(){
+                        $(this).pop_close("pop_fenglu");
+                    });
+                }
+            });	
+        }else{
+            $btnFenglu.pop_dialog({
+                id : 'pop_fenglu', 
+                top : 20, 
+                left : -193, 
+                width : 270, 
+                height : 95, 
+                title : '我的俸禄', 
+                content : '<p>'+ret['msg']+'</p><div class="btn"><a href="https://web.archive.org/web/20131013151225/http://www.aipai.com/aipaiVip.php?action=process" target="_blank"></a></div>',
+                afterShow : function(){
+                    $('#pop_fenglu').find('a').click(function(){
+                        $(this).pop_close("pop_fenglu");
+                    });
+                }
+            });
+        }	
+            
+    },
+    //我的个人空间:个人账户
+    modUpgrade : function(){
+        var _ts = this,
+            $el = $('#mod_upgrade');
+
+        //判断是否存在
+        if($el.size() <= 0){
+            return;
+        }
+
+        var $btnGetApb = $el.find('.con_m .apb em'),
+            $con_ilist = $el.find('.con_ilist'),
+            showTime,
+            hideTime;
+
+        //提示
+        $con_ilist.find('.c_item').hover(function(){
+            var _t = this;
+//            if(hideTime){
+//                clearTimeout(hideTime);
+//            }
+
+            if(showTime){
+                clearTimeout(showTime);
+            }
+            showTime = setTimeout(function(){
+                var html = $(_t).find('.pop_info').html();
+                var id = 'pop_upgrade_'+$(_t).attr('ref');
+                $(this).pop_close_all();
+                $(_t).pop_dialog({
+                    id : id,
+                    type : 'content',
+                    width : 226,
+                    height : 67,
+                    content : '<div class="pop_upgrade">'+html+'</div>',
+                    left : -81,
+                    top : -70,
+                    id : id,
+                    afterShow : function(){
+                        $('#'+id).hover(function(){
+                            if(hideTime){
+                                clearTimeout(hideTime);
+                            }
+                            if(showTime){
+                                clearTimeout(showTime);
+                            }
+                        },function(){
+                            hideTime = setTimeout(function(){
+                                $(this).pop_close(id);
+                            },100);
+                        });
+                    }
+                });
+            },100);
+        },function(){
+            var _t = this,
+                id = 'pop_upgrade_'+$(_t).attr('ref');
+//            if(hideTime){
+//                clearTimeout(hideTime);
+//            }
+            if(showTime){
+                clearTimeout(showTime);
+            }
+            hideTime = setTimeout(function(){
+                $(this).pop_close(id);
+            },100);
+        });
+        
+
+        //获取爱拍币
+        $btnGetApb.click(function(){
+            $(this).pop_dialog({
+                id : 'pop_getapb',
+                type : 'content',
+                width : 277,
+                height : 44,
+                top : -55,
+                left : -200,
+                content : $('#html_pop_getapb').html(),
+                afterShow : function(opt){
+                    var $pop = $('#'+opt.id),
+                        $getapb_close = $pop.find('.btn_close');
+
+                    $getapb_close.click(function(){
+                        $(this).pop_close(opt.id);
+                    });
+                }
+            });
+            
+        });
+        
+    },
+    //礼物区
+    modGift : function(){
+        var _ts = this,
+            $el = $('#mod_gift');
+
+        //送礼物提示
+        var drift4 = $('#giftSongli_new .drift').eq(3);
+        var drift8 = $('#giftSongli_new .drift').eq(7);
+            drift4.css({ "left": "-25px"});
+            drift8.css({ "left": "-25px"});
+        $('#giftSongli_new li').hover(function(){
+            $(this).addClass('cur');
+        }, function(){
+            $(this).removeClass('cur');
+        });
+
+        //tab切换
+        $el.find('.col_gift_richlist').each(function(i, e){
+            var _tabHd = $(e).find(".hd em"), 
+                _tabCon = $(e).find('.cont'); 
+            _tabHd.click(function(){
+                var i = _tabHd.removeClass('cur').index(this);
+                $(this).addClass('cur');
+                _tabCon.hide().eq(i).show();
+            });
+        });
+
+        //礼物图片 ie6替换为png8
+        if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) { 
+            $('#giftSongli_new .pic ').each(function (i,e){
+              var _pic =   $(e).find('img');
+              var _pic_i =   _pic.attr("src");
+               _pic.attr("src",_pic_i.replace(/b24/, "b8"));
+            });
+
+            $('.my_active .pic ').each(function (i,e){
+              var _pic =   $(e).find('img');
+              var _pic_i =   _pic.attr("src");
+               _pic.attr("src",_pic_i.replace(/b24/, "b8"));
+            });
+
+            $('.it_active .pic ').each(function (i,e){
+              var _pic =   $(e).find('img');
+              var _pic_i =   _pic.attr("src");
+               _pic.attr("src",_pic_i.replace(/b24/, "b8"));
+            });
+        }
+        
+    },
+    //我的个人空间:偶像动态
+    modActive : {
+        init : function(){
+            var _ts = this,
+            $el = $('#mod_active'),
+            $btnBind = $el.find('.hd .bindact');
+
+            if($btnBind.size() <= 0){
+                return;
+            }
+
+            $btnBind.click(function(){
+                checkloginNew(_ts.bindActive, {
+                    _t: this
+                });
+                return false;
+            });
+
+        },
+        bindActive : function(o) {
+            var _ts = o._t;
+            $(_ts).pop_dialog({
+                title: '同步我的动态到QQ空间',
+                id: 'bindActive',
+                width: 386,
+                height: 98,
+                top: 16,
+                left: - 256,
+                content: '<div class="pop_bloading"><img src="https://web.archive.org/web/20131013151225/http://www.aipai.com/common/img/loading.gif" /></div>',
+                afterShow: function(opt) {
+                    var bid = Cookies.get('b');
+                    if (bid > 0) {
+                        var getUrl = 'http://'+Index.config.host+'/service.php?';
+                        var metadata = 'action=spaceAjax&sort=1&callback=Index.modActive.bindActiveCb&atoken=' + getActionToken();
+                        $.ajax({
+                            type: "GET",
+                            url: getUrl,
+                            dataType: 'jsonp',
+                            data: metadata
+                        });
+                    } else {
+                        checkloginNew(function() {},
+                        {});
+                    }
+                }
+            });
+        },
+        bindActiveCb : function(ret) {
+            var _bindActive = $('#bindActive').find('.pd_main');
+
+            if (ret['code'] == 0) {
+                //未绑定
+                _bindActive.html('<div class="pop_bindact"><p>将拍子号与QQ绑定后，你的爱拍动态（发布/评论/收藏视频等）将第一时间分享至QQ空间！</p><div class="btn"><a href="https://web.archive.org/web/20131013151225/http://www.aipai.com/service.php?action=qq" target="_blank" class="btn_bind">立即绑定</a></div></div>');
+            } else if (ret['code'] == 1) {
+                //已绑定
+                _bindActive.html('<div class="pop_bindact"><p>你已绑定过QQ空间，你的爱拍动态（发布/评论/收藏视频等）已同步分享至QQ空间了！ <a href="https://web.archive.org/web/20131013151225/http://www.aipai.com/service.php?action=qq" target="_blank">查看同步状态>></a></p><div class="btn"><span class="btn_close">关闭</span></div></div>');
+                $('.pop_bindact .btn_close').click(function() {
+                    $(this).pop_close_all();
+                });
+            }
+        }
+    },
+    //右侧用户信息
+    popUserInfo : function(){
+        var _ts = this,
+            $el = $('#ws_visitor .user_list li, #ws_fetish .user_list li, #ws_fans .user_list li'),
+            showTime,
+            hideTime;
+
+        $el.each(function(i, e){
+            $(this).attr('ref', i);
+        });
+
+        //用户信息
+        $el.hover(function(){
+            var _t = this,
+                id = 'pop_user_info_'+$(_t).attr('ref');
+
+//            if(hideTime){
+//                clearTimeout(hideTime);
+//            }
+            if(showTime){
+                clearTimeout(showTime);
+            }
+            showTime = setTimeout(function(){
+                var html = $(_t).find('.pop_info').html();
+                $(this).pop_close_all();
+                $(_t).pop_dialog({
+                    id : id,
+                    type : 'content',
+                    width : 226,
+                    height : 67,
+                    content : '<div class="pop_user_info">'+html+'</div>',
+                    left : -61,
+                    top : -70,
+                    id : id,
+                    afterShow : function(opt){
+                        var $pop = $('#'+opt.id);
+                        $pop.hover(function(){
+                            if(hideTime){
+                                clearTimeout(hideTime);
+                            }
+                            if(showTime){
+                                clearTimeout(showTime);
+                            }
+                        },function(){
+                            hideTime = setTimeout(function(){
+                                $(this).pop_close(id);
+                            },100);
+                        });
+
+                        //粉Ta
+                        $pop.find('.pui_fans').click(function(){
+                            var obj = {
+                                _t : $(this),
+                                bid : $(this).attr('data-bid'),
+                                name : $(this).attr('data-name'),
+                                position : 'center',
+                                left : -100,
+                                top : 25
+                            };
+                            //Home.fans.init(obj);
+                            checkloginNew(Home.fans.init, obj);
+                            return false;
+                        });
+                    }
+                });
+            },500);
+        },function(){
+            var _t = this,
+                id = 'pop_user_info_'+$(_t).attr('ref');
+//            if(hideTime){
+//                clearTimeout(hideTime);
+//            }
+            if(showTime){
+                clearTimeout(showTime);
+            }
+            hideTime = setTimeout(function(){
+                $(this).pop_close(id);
+            },500);
+        });
+    },
+    //右侧推荐
+    modRem : function(){
+        var _ts = this, 
+            $relEl = $('#aipai_app'),
+            userArray,
+            hotArray,
+            userHtml = '',
+            hotHtml = '',
+            html = '';
+
+        //判断变量为数组，并不为空
+        if(typeof spread_data !== 'undefined' && Object.prototype.toString.call(spread_data) === "[object Array]" && spread_data.length > 0){
+            //玩家推荐
+            userArray = _ts.tools.getArrayItems(spread_data, 6);
+            try{
+                userHtml = _ts.modRemRender(userArray);
+            }catch(e){}
+        }
+
+        if(typeof recommend_data !== 'undefined' && Object.prototype.toString.call(recommend_data) === "[object Array]" && recommend_data.length > 0){
+            //热门推荐
+            hotArray = _ts.tools.getArrayItems(recommend_data, 6);
+            try{
+                hotHtml = _ts.modRemRender(hotArray, 'hot');
+            }catch(e){}
+        }
+        
+
+        html = userHtml + hotHtml;
+
+        $relEl.before(html);
+
+        //图片滚动加载
+        $(".mod_recommend img[osrc]").lazyload({
+            failurelimit: 20,
+            threshold:"100"
+        });
+
+    },
+    modRemRender : function(data, type){
+        var topArray = [],
+            title = '玩家推荐',
+            cls = 'mod_re_player',
+            html = '';
+
+
+        if(typeof type !== 'undefined' && type === 'hot'){
+            title = '热门推荐',
+            cls = 'mod_re_hot';
+        }
+
+        html += '<div id="'+cls+'" class="mod_ws mod_recommend '+cls+'"> <div class="hd"> <h3>'+title+'</h3> </div> <div class="bd"><ul class="list_video">';
+
+
+        if(data.length >= 2){
+            //前2条数据
+            topArray.push(data.shift(data));
+            topArray.push(data.shift(data));
+        }else{
+            //前1条数据
+            topArray.push(data.shift(data));                          
+        }
+
+        for(var i = 0,j = topArray.length; i < j; i++){
+            //数据源格式不同，需要做兼容处理
+            var pic = (typeof topArray[i].big !== 'undefined') ? topArray[i].big : topArray[i].middle.replace('_middle','_big');
+            var homeUrl = (typeof topArray[i].bid !== 'undefined') ? 'http://'+Index.config.host+'/space.php?bid='+topArray[i].bid : topArray[i].bidUrl;
+            var ico_user = '';
+
+            if(typeof topArray[i].user !== 'undefined' && typeof topArray[i].user.status !== 'undefined' && typeof topArray[i].user.type !== 'undefined'){
+                var userStatus = topArray[i].user.status;
+                var userType = topArray[i].user.type;
+                
+                if (userType > 0 && userStatus > 0){
+                    ico_user = 'title="认证红人" class="ico_hrrz"';
+                }else if (userType == 0 && userStatus > 0){
+                    ico_user = 'title="红人" class="ico_hr"';
+                }else if (userType > 0 && userStatus == 0){
+                    ico_user = 'title="爱拍认证" class="ico_rz"';
+                }else{
+                    ico_user = 'class="ico_user"';
+                }
+            }else{
+                ico_user = 'class="ico_user"';
+            }
+
+
+                
+                html += '<li> <a class="pic" target="_blank" href="'+topArray[i].url+'"><img src="https://web.archive.org/web/20131013151225/http://www.aipai.com/app/www/templates/home/css/img/s.png" osrc="'+pic+'" width="110" height="80" /></a> <h5><a target="_blank" title="'+topArray[i].title+'" href="'+topArray[i].url+'">'+topArray[i].title+'</a></h5> <p> <em '+ico_user+'></em> <a href="'+homeUrl+'" target="_blank">'+topArray[i].nickname+'</a> </p> <p> <em class="ico_zq"></em> <a href="'+topArray[i].gameUrl+'" target="_blank">'+topArray[i].game+'</a> </p> </li>';
+        }
+
+        html += '</ul>';
+
+        if(data.length > 0){
+            html += '<ul class="list_article">';
+            for(var i = 0,j = data.length; i < j; i++){
+                html += '<li><span>[<a target="_blank" href="'+data[i].gameUrl+'">'+data[i].game+'</a>]</span><a target="_blank" title="'+data[i].title+'" href="'+data[i].url+'">'+data[i].title+'</a></li>';
+            }
+            html += '</ul>';
+        }
+
+        html+= '</div></div>';
+
+        return html;
+    },
+    //右侧认证信息
+    modAuth : function (){
+         var _ts = $('.mod_auth')
+             _unfold = _ts.find('.auth_unfold'),
+             _close = _ts.find('.auth_close'),
+             _authS = _ts.find('.auth_s'),
+             _authL = _ts.find('.auth_l');
+             $(_unfold).click(function (){
+                 _authS.hide();
+                 _authL.show();
+             });
+             $(_close).click(function (){
+                 _authS.show();
+                 _authL.hide();
+             });
+    },
+    //发日志信息
+    wordsLeft : function (){
+       setInterval(function(){
+           CheckWordsLeft();
+       },100)
+    },
+    modCmt : function (){
+        var _comt = $('#comment_text'),
+            _tips = _comt.parent().parent().find('.cmti_tips');
+        if (_comt.val() == ''){
+            _tips.show();
+        }else{
+            _tips.hide();
+        };
+        _tips.click(function (){
+           $(this).hide();
+           _comt.focus();
+        });
+    },
+
+    //添加广告
+    modgg : function(){
+        if(!_gm.util.isMobile){
+            $(".wside_gg").after('<div style="width:240px;height:40px;margin:10px auto 0;overflow:hidden;">\
+                <iframe border="0" marginwidth="0" scrolling="no" marginheight="0" src="http://'+location.host+'/app/www/templates/clkxma/m3w/index_240_40.html" frameborder="no" width="240" height="40">\
+                </iframe></div>')
+        }
+    }
+
+}
+
+
+//入口
+$(function(){
+
+    Index.init();
+
+    
+});
+
+//以下是旧方法
+//====================================================================
+var cursPos; // 窗口全局变量，保存目标 TextBox 的最后一次活动光标位置
+
+function clickFacemini(myValue) {
+	var txt1 = myValue;
+	var txt2 = $('#mt_operate').find('.bd_log textarea').get(0);
+	//debugger;
+	if (typeof document.selection != "undefined") {
+		if (!cursPos) TraceCursorPosition(txt2); // 获取光标位置
+		txt2.value = txt2.value.slice(0, cursPos.start) + txt1 + txt2.value.slice(cursPos.end);
+		var txtRange = txt2.createTextRange();
+		txtRange.moveStart("character", txt2.value.length);
+		txtRange.moveEnd("character", 0);
+		txtRange.select();
+	}
+	else {
+		var tclen = txt2.value.length;
+		txt2.value = txt2.value.substr(0, txt2.selectionStart) + txt1 + txt2.value.substring(txt2.selectionStart, tclen);
+	}
+}
+
+// 跟踪光标位置
+function TraceCursorPosition(obj) {
+	cursPos = $CursorPosition(obj);
+}
+
+function CheckWordsLeft(){
+    var _wordLeft = $("#msgWordLeft");
+    if(_wordLeft.length === 1){
+        var _length = $("#msgContent").val().length;
+        var _msgContent = $("#msgContent");
+        var v = _msgContent.val();
+        _wordLeft.hide();
+
+        if(v != '' && v != '想说点什么……'){
+             var v_con = v.replace(/[想说点什么……]/g,"");
+             var _cont = $('#mt_operate').find('.bd_log').css("display");
+             _msgContent.val(v_con);
+             _msgContent.removeClass('gray');
+             if (_cont == 'none'){
+                 _wordLeft.hide();
+             }else{
+                 _wordLeft.show();
+             }
+        }
+        _wordLeft.text("剩余"+(300-_length)+"字");
+    }
+}
+function $CursorPosition(textBox) {
+	var start = 0,
+	end = 0;
+	//如果是Firefox(1.5)的话，方法很简单
+	if (typeof(textBox.selectionStart) == "number") {
+		start = textBox.selectionStart;
+		end = textBox.selectionEnd;
+	}
+	//下面是IE(6.0)的方法，麻烦得很，还要计算上'\n'
+	else if (document.selection) {
+		var range = document.selection.createRange();
+		if (range.parentElement().id == textBox.id) {
+			// create a selection of the whole textarea
+			var range_all = document.body.createTextRange();
+			range_all.moveToElementText(textBox);
+			//两个range，一个是已经选择的text(range)，一个是整个textarea(range_all)
+			//range_all.compareEndPoints()比较两个端点，如果range_all比range更往左(further to the left)，则
+			//返回小于0的值，则range_all往右移一点，直到两个range的start相同。
+			// calculate selection start point by moving beginning of range_all to beginning of range
+			for (start = 0; range_all.compareEndPoints("StartToStart", range) < 0; start++)
+			range_all.moveStart('character', 1);
+			// get number of line breaks from textarea start to selection start and add them to start
+			// 计算一下\n
+			for (var i = 0; i <= start; i++) {
+				if (textBox.value.charAt(i) == '\n') start++;
+			}
+			// create a selection of the whole textarea
+			var range_all = document.body.createTextRange();
+			range_all.moveToElementText(textBox);
+			// calculate selection end point by moving beginning of range_all to end of range
+			for (end = 0; range_all.compareEndPoints('StartToEnd', range) < 0; end++) {
+				range_all.moveStart('character', 1);
+			}
+			// get number of line breaks from textarea start to selection end and add them to end
+			for (var i = 0; i <= end; i++) {
+				if (textBox.value.charAt(i) == '\n') end++;
+			}
+		}
+	}
+	//return [start, end]; // 包括选中区域的起始位置
+	// modified to return as Object
+	return {
+		"start": start,
+		"end": end,
+		"item": [start, end]
+	};
+}
+
+function getHumanTime()
+{
+	var niceTime = new Date(dateline(arguments[1]));
+	return niceTime.timeformat5();
+}
+
+}
+
+/*
+     FILE ARCHIVED ON 15:12:25 Oct 13, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 19:27:02 Sep 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.361
+  load_resource: 497.572
+  PetaboxLoader3.resolve: 479.243
+  PetaboxLoader3.datanode: 17.028
+*/

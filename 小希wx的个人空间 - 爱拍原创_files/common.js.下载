@@ -1,0 +1,1438 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+/**
+ * home/js/common.js
+ *
+ * $Revision: 60692 $
+ * $Date: 2013-09-30 13:53:02 +0800 (Mon, 30 Sep 2013) $
+ * $Author: chenyuexing $
+ * =============
+ */ 
+
+
+var Home = {
+    //初始化
+    init : function(){
+        var _ts = this,
+            host = location.host;
+
+        _ts.config.host = host;
+
+        //加载弹出html
+        $('body').append('<div id="load_info_html"></div>');
+        $('#load_info_html').load('http://'+host+'/app/www/templates/common/html/info.html');
+        //$('#load_info_html').load('/Aipai/Code/templates/common/html/info.html');
+        
+        //个人空间：顶头导航
+        _ts.header.init();
+
+        //个人空间：头部
+        _ts.wtop.init();
+
+        //点歌
+        _ts.vod.init();
+
+        //广告
+        _ts.gg.init();
+
+    },
+    config : {
+    },
+    gg : {
+         init : function (){
+             if (_gm.util.isMobile){
+                $('.wside_gg,.wsgg,.wrap_gg,#foot_gg').remove();
+             }else{
+
+                 //底部已有广告的，不重复加广告
+                 if($('.wrap_gg').size() > 0){
+                     return;
+                 }
+                 //统一底部广告
+                 $('.mod_sitemap').before('<div style="margin:10px auto;width:960px;height:60px;overflow:hidden;"><iframe border="0" marginwidth="0" scrolling="no" marginheight="0" src="http://'+location.host+'/app/www/templates/4ulzxe/v7x/home_960_60.html" frameborder="no" width="960" height="60"></iframe></div>');
+             }
+
+         }  
+     },
+    //个人空间：顶头导航
+    header : {
+        init : function(){
+            var _ts = this,
+                $el = $('#home_header');
+
+            if($el.size() <= 0){
+                return;
+            }
+
+            _ts.$el = $el;
+
+            //输出 
+            _ts.popRender();
+
+            //取消息
+            try{
+                getNotify();
+            }catch(e){}
+        },
+        //配置
+        config : {
+            game : [
+                ['hstx.aipai.com', '横扫天下',true],
+                ['tjz.aipai.com', '天劫传'],
+                ['xmhzc.aipai.com', '新梦幻之城'],
+                ['https://web.archive.org/web/20131013160501/http://zl.qq.com/u10087.shtml', '战龙三国'],
+                ['https://web.archive.org/web/20131013160501/http://lmzg.aipai.com', '黎明之光'],
+                ['https://web.archive.org/web/20131013160501/http://sgyy.aipai.com', '三国演义'],
+                ['https://web.archive.org/web/20131013160501/http://jjsg.aipai.com', '街机三国'],
+                ['https://web.archive.org/web/20131013160501/http://lhzs.aipai.com', '烈火战神'],
+                ['https://web.archive.org/web/20131013160501/http://hz.aipai.com', '热血海贼王'],
+                ['https://web.archive.org/web/20131013160501/http://xw.aipai.com', '侠武英雄传'],
+                ['https://web.archive.org/web/20131013160501/http://sxd.aipai.com', '神仙道'],
+                ['https://web.archive.org/web/20131013160501/http://hysj.aipai.com', '火影世界']
+            ],
+            shop : [   
+				['https://web.archive.org/web/20131013160501/http://tao.aipai.com/pc', '红人热推',],	
+                ['https://web.archive.org/web/20131013160501/http://tao.aipai.com/aipai3c', '爱拍数码'],
+				['https://web.archive.org/web/20131013160501/http://tao.aipai.com/010', '爱拍零食', true],
+				['https://web.archive.org/web/20131013160501/http://tao.aipai.com/i9pai', '爱拍服装']
+            ],
+            paizi : [
+                ['https://web.archive.org/web/20131013160501/http://www.aipai.com/hr.php', '红人申请'],
+                ['https://web.archive.org/web/20131013160501/http://www.aipai.com/renzheng.html', '认证申请'],
+                ['https://web.archive.org/web/20131013160501/http://www.aipai.com/helper/gonglue_daoyan.html', '导演资助'],
+                ['https://web.archive.org/web/20131013160501/http://www.aipai.com/helper/gonglue_shenjing.html', '申精攻略'],
+                ['https://web.archive.org/web/20131013160501/http://bbs.aipai.com/forum-9-1.html', '论坛提问'],
+                ['https://web.archive.org/web/20131013160501/http://act.aipai.com/', '活动中心'],
+                ['https://web.archive.org/web/20131013160501/http://www.aipai.com/helper/gonglue_hongren.html', '玩转爱拍']
+            ],
+            pds : [
+                ['https://web.archive.org/web/20131013160501/http://dashi.aipai.com/', '电脑版'],
+                ['https://web.archive.org/web/20131013160501/http://app.aipai.com/paidashi', '移动版']
+            ],
+            config : [
+                ['https://web.archive.org/web/20131013160501/http://www.aipai.com/space.php?action=updateInfo', '个人设置'],
+                ['https://web.archive.org/web/20131013160501/http://www.aipai.com/service.php', '绑定QQ'],
+                ['https://web.archive.org/web/20131013160501/http://www.aipai.com/pay.php', '充值'],
+                ['javascript:ajaxLogOut();', '登出', false, true]
+            ],
+            vip : [
+                ['https://web.archive.org/web/20131013160501/http://vip.aipai.com/', '爱拍VIP'],
+                ['https://web.archive.org/web/20131013160501/http://dashi.aipai.com/vip.html', '拍大师VIP'],
+                ['https://web.archive.org/web/20131013160501/http://f.aipai.com/', '铁粉俱乐部']
+            ]
+        },
+        //渲染下拉html
+        popRender : function(){
+            var _ts = this,
+                $el = _ts.$el,
+                config = _ts.config,
+                html = '';
+
+            for(var key in config){
+                var data = config[key];
+                html += '<div class="hh_pop_con hh_pop_'+key+'"><span></span><div><ul>';
+                for(var i = 0,j = data.length; i < j; i++){
+                    var isRed = data[i][2] ? ' class="red" ' : '';
+                    var isBlank = data[i][3] ? '' : ' target="_blank"';
+                    html += '<li><a'+isRed+' href="'+data[i][0]+'"'+isBlank+'>'+data[i][1]+'</a></li>'; 
+                }
+                html += '</ul></div></div>';
+            }
+
+            html += '<div class="hh_pop_msg"> <div class="hhpm_t"></div> <em title="关闭" class="btn_close"></em> <div class="hhpm_con"> <p><a class="user" target="_blank" href="#"></a><a target="_blank" href="#"></a></p> <div class="hhpm_nums"><a target="_blank" href="https://web.archive.org/web/20131013160501/http://www.aipai.com/message.php?clearNotifyMsg=1">共<span>0</span>条未读消息</a></div> </div> </div>';
+
+            $el.after('<div id="hh_pop">'+html+'</div>');
+
+            var $popWrap = $('#hh_pop');
+            _ts.$popWrap = $popWrap;
+
+            //绑定下拉事件
+            for(var key in config){
+                if(key === 'config'){
+                    _ts.popBind({
+                        t : $el.find('.dd_'+key),
+                        pop : $popWrap.find('.hh_pop_'+key),
+                        top : 22,
+                        left : -10
+                    });
+                }else if(key === 'vip'){
+                    _ts.popBind({
+                        t : $el.find('.dd_'+key),
+                        pop : $popWrap.find('.hh_pop_'+key),
+                        top : 22,
+                        left : -45
+                    });
+                }else{
+                    _ts.popBind({
+                        t : $el.find('.dd_'+key),
+                        pop : $popWrap.find('.hh_pop_'+key)
+                    });
+                }
+            }
+
+        },
+        //供login.js接收到新消息时调用
+        msg : function(ret){
+            var _ts = this,
+                $el = _ts.$el,
+                nums = ret['totalMsg'];
+
+            if(nums > 0 && typeof ret['popMsg'] !== 'undefined' && ret['popMsg'] == 1){
+                //显示消息
+                var data = (typeof ret['notifyMsg'] !== 'undefined') ? ret['notifyMsg'] : {},
+                    left = $el.find('.hh_msg').offset().left - 80;
+
+                _ts.popMsg({
+                    left : left,
+                    totalMsg : nums,
+                    data : data
+                });
+            }else{
+                //隐藏消息
+                _ts.popMsgClose();
+            }
+
+            //更新数目
+            if(nums > 0){
+                if(nums > 99){
+                    nums = '99+';
+                }
+                $el.find('.hh_msg').find('em i').html(nums).end().addClass('hh_msg_show'); 
+            }else{
+                $el.find('.hh_msg').find('em i').html('').end().removeClass('hh_msg_show'); 
+            }
+            
+        },
+        //绑定下拉事件
+        popBind : function(opt){
+            var _ts = opt.t, 
+                pop = opt.pop, 
+                top = opt.top || 16, 
+                left = opt.left || 0, 
+                ht = null, 
+                st = null;	
+
+            _ts.hover(function(){		   
+                if(ht){clearTimeout(ht);}
+                st = setTimeout(function(){
+                    var of = _ts.offset(),
+                        winw = $(window).width();
+                    //1024分辨率
+                    if(winw < 1010 && of.left > 920 && of.left < 950){
+                        var _con = pop.css({
+                            'top' : of.top + top, 
+                            'left' : of.left - 45
+                        }).show();
+                    }else{
+                        var _con = pop.css({
+                            'top' : of.top + top, 
+                            'left' : of.left + left
+                        }).show();
+                    }
+                    var _div = _con.find('div'),
+                        outerHeight = 0;
+                    //兼容旧版jQuery处理（没有outerHeight方法）
+                    try{
+                        outerHeight = _div.outerHeight();
+                    } catch(e){
+                        outerHeight = _div.height() + parseInt(_div.css('paddingTop'), 10) + parseInt(_div.css('paddingBottom'), 10) + 2;
+                    }
+                    _con.find('span').height(outerHeight);
+                    
+                },100);
+            }, function(){
+                if(st){clearTimeout(st);}
+                ht = setTimeout(function(){
+                    pop.hide();
+                },200);
+            });
+            pop.hover(function(){
+                if(ht){clearTimeout(ht);}
+            },function(){
+                ht = setTimeout(function(){
+                    pop.hide();
+                },200);
+            });
+                
+        },
+        popMsg : function(opt){
+            var _ts = this,
+                $el = _ts.$el,
+                $popWrap = _ts.$popWrap,
+                $tsPop = $popWrap.find('.hh_pop_msg'), 
+                isLogedChange = $('#loginDiv2').css('display');
+
+            if(isLogedChange != 'block'){
+                return;
+            }
+
+            //设置位置
+            $tsPop.css({
+                left : opt.left
+            });
+
+            //输出数字
+            if(opt.totalMsg > 0){
+                $tsPop.find('.hhpm_nums span').html(opt.totalMsg);
+            }
+
+            //输出信息
+            if(typeof opt.data.adword !== 'undefined' && opt.data.adword.length > 0){
+                $tsPop.find('.hhpm_con p').html('<a class="adword" target="_blank" href="'+opt.data.url+'"><span class="user">'+opt.data.nickname+'</span>'+opt.data.adword+'</a>');
+            }else{
+                $tsPop.find('.hhpm_con').addClass('hhpm_con_nodata');
+            }
+
+            //关闭
+            $tsPop.find('.btn_close').click(function(){
+                $tsPop.hide();
+                //清除消息提示
+                $.get('http://'+Home.config.host+'/message.php?action=clearNotifyMsg');
+            });
+
+            //点链接
+            $tsPop.find('.adword, .hhpm_nums a').click(function(){
+                $tsPop.hide();
+                //清除消息提示
+                $.get('http://'+Home.config.host+'/message.php?action=clearNotifyMsg');
+                //getNotify();
+            });
+            $el.find('.hh_msg').click(function(){
+                $tsPop.hide();
+                //清除消息提示
+                $.get('http://'+Home.config.host+'/message.php?action=clearNotifyMsg');
+                //getNotify();
+            });
+
+            $tsPop.show();
+
+        },
+        popMsgClose : function(){
+            var _ts = this,
+                $el = _ts.$el,
+                $popWrap = _ts.$popWrap,
+                $tsPop = $popWrap.find('.hh_pop_msg'); 
+
+            $tsPop.hide();
+        }
+    },
+    //个人空间头部
+    wtop : {
+        init : function(){
+            var _ts = this,
+                $el = $('#wtop');
+
+            _ts.$el = $el;
+
+            //勋章处理
+            _ts.medal();
+
+            //头像
+            _ts.wtava();
+
+            //vip地址分享
+            _ts.vipShare();
+
+            //我的个人空间：签名
+            _ts.mySign();
+
+            //我的个人空间：VIP领俸禄
+            _ts.fengLu();
+
+            //Ta的个人空间：铁粉
+            _ts.tfans();
+
+            //Ta的个人空间：成为粉丝
+            _ts.fans();
+
+            //Ta的个人空间：加为好友
+            _ts.friend();
+
+            //最新作品显示
+            _ts.wtnav();
+        },
+        //头像
+        wtava : function(){
+            var _ts = this,
+                $el = _ts.$el,
+                $wtava = $el.find('.wtava'),
+                $nums = $wtava.find('.wta_nums'),
+                $btnNext = $nums.find('.wta_nr'),
+                $btnPrev = $nums.find('.wta_nl'),
+                $numsCon = $nums.find('.wta_ncon'),
+                $numsUl = $numsCon.find('ul'),
+                $vip = $wtava.find('.wta_vip'),
+                vipFlash = '',
+                index = 0,
+                nums = $numsUl.find('li').size(),
+                process = false;    //是否正在滑动
+
+            //vip图标
+            if(typeof g_vipLevel !== 'undefined' && parseInt(g_vipLevel, 10) > 0 && $vip.size() > 0){
+                //vipFlash = AC_FL_GetContent( 'codebase','https://web.archive.org/web/20131013160501/http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0','width','64','height','64','src','/Aipai/Code/templates/home/css/img/skin/level_'+g_vipLevel+'/vip','quality','high','pluginspage','https://web.archive.org/web/20131013160501/http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash','movie','/Aipai/Code/templates/home/css/img/skin/level_'+g_vipLevel+'/vip','wmode','transparent'); //end AC code
+                
+                vipFlash = AC_FL_GetContent( 'codebase','https://web.archive.org/web/20131013160501/http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0','width','64','height','64','src','/app/www/templates/home/css/img/skin/level_'+g_vipLevel+'/vip','quality','high','pluginspage','https://web.archive.org/web/20131013160501/http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash','movie','/app/www/templates/home/css/img/skin/level_'+g_vipLevel+'/vip','wmode','transparent'); //end AC code
+                $vip.find('.wta_vip_bg').html(vipFlash);
+            }
+
+            //设置ul宽度
+            $numsUl.width(nums*51);
+
+            //next
+            $btnNext.click(function(){
+                if(!process){
+                    if(index === (nums-3)){
+                        return;
+                    }
+                    process = true;
+                    index++;
+                    //滑动
+                    $numsUl.animate({
+                        'margin-left': '-=51'
+                    }, 500, function() {
+                        process = false;
+                    });
+                }
+            });
+
+            //prev
+            $btnPrev.click(function(){
+                if(!process){
+                    if(index === 0){
+                        return;
+                    }
+                    process = true;
+                    index--;
+                    //滑动
+                    $numsUl.animate({
+                        'margin-left': '+=51'
+                    }, 500, function() {
+                        process = false;
+                    });
+                }
+            });
+            
+        },
+        //vip地址分享
+        vipShare : function(){
+            var _ts = this,
+                $el = _ts.$el,
+                $wt_user = $el.find('.wt_user'),
+                $btnShare = $wt_user.find('.wtu_share'),
+                $wtHeight = $btnShare.width()+6,
+                showTime,
+                hideTime;
+
+            //是否存在
+            if($btnShare.size() > 0){
+               $btnShare.hover(function(){
+                   var _ts = this;
+                    if(hideTime){
+                        clearTimeout(hideTime);
+                    }
+                    if(showTime){
+                        clearTimeout(showTime);
+                    }
+                    showTime = setTimeout(function(){
+                        $(_ts).pop_dialog({
+                            id : 'pop_vipshare',
+                            type : 'content',
+                            top : -6,
+                            left : $wtHeight,
+                            width : 136,
+                            height : 42,
+                            content : $('#html_vipshare').html(),
+                            afterShow : function(opt){
+                                var $pop = $('#'+opt.id);
+                                $pop.hover(function(){
+                                    if(hideTime){
+                                        clearTimeout(hideTime);
+                                    }
+                                    if(showTime){
+                                        clearTimeout(showTime);
+                                    }
+                                },function(){
+                                    hideTime = setTimeout(function(){
+                                        $(this).pop_close('pop_vipshare');
+                                    },100);
+                                });
+                            }
+                        });
+                    },500);
+                },function(){
+                    if(hideTime){
+                        clearTimeout(hideTime);
+                    }
+                    if(showTime){
+                        clearTimeout(showTime);
+                    }
+                    hideTime = setTimeout(function(){
+                        $(this).pop_close('pop_vipshare');
+                    },100);
+               });
+
+
+            }
+        },
+        //我的个人空间:签名
+        mySign : function(){
+            var _ts = this,
+                $el = _ts.$el,
+                $btnEdit = $el.find('.wtu_log .ico_edit');
+
+            //判断是否存在
+            if($btnEdit.size() <= 0){
+                return;
+            }
+
+            $btnEdit.click(function(){
+                $(this).pop_dialog({
+                    id : 'pop_sign',
+                    title : '我的签名',
+                    top : 17,
+                    left : -250,
+                    width : 340,
+                    height : 120,
+                    content : $('#html_pop_sign').html(),
+                    afterShow : function(opt){
+                        var $pop = $('#'+opt.id),
+                            $mySign = $el.find('.wtu_log .wtu_logcon'),
+                            $text = $pop.find('textarea');
+
+
+                        //输入框
+                        $text.focus(function(){
+                            var v = $.trim($(this).val());
+                            if(v == '最多三十字' || v == '请输入签名'){
+                                $(this).val('').removeClass('gray');
+                            }
+                        }).blur(function(){
+                            var v = $.trim($(this).val());
+                            if(v.length == 0){
+                                $(this).val('最多三十字').addClass('gray');
+                            }else if(v.length > 30){
+                                $(this).val(v.substr(0, 30));
+                            }
+                        }).keyup(function(e){
+                            var v = $.trim($(this).val());
+                            $(this).val(v.substr(0, 30));
+                        });
+
+                        //确定
+                        $pop.find('.btn1').click(function(){
+                            var userText = $.trim($pop.find('textarea').val()); 
+
+                            if(userText.length == 0 || userText == '最多三十字' || userText == '请输入签名'){
+                                $text.val('请输入签名');
+                                setTimeout(function(){
+                                    $text.val('最多三十字');
+                                },2000);
+                                return false;
+                            }
+
+                            $.post("apps/userText.php?", {
+                                action: "submitUserText",
+                                words: userText,
+                                atoken: getActionToken()
+                            },
+                            function(data) {
+                                var newWords = '';
+                                var newTime = '(刚刚更新)';
+
+                                if (data.length > 0) {
+                                    newWords = data.substr(0, 30);
+                                    $mySign.html(newWords+'<em>'+newTime+'</em>');
+                                    $(this).pop_close(opt.id);
+                                } else {
+                                    $(this).pop_alert({
+                                        msg : '网络有问题，请重新更新签名。'                                        
+                                    });
+                                }
+                            });
+                        });
+
+                        //取消
+                        $pop.find('.btn2').click(function(){
+                            $(this).pop_close(opt.id);
+                        });
+                    }
+                });
+            });
+            
+        },
+        //我的个人空间：VIP领俸禄
+        fengLu : function(){
+            var _ts = this,
+                $el = _ts.$el,
+                $btnFenglu = $el.find('.wtu_operate .btn_fl');
+
+            _ts.$btnFenglu = $btnFenglu;
+
+            $btnFenglu.click(function(){
+                var vipUrl = 'http://'+Home.config.host+'/app/www/apps/webVip.php?action=webVip&mod=getSalary',
+                metadata = '&callback=Home.wtop.fengluCb&atoken='+getActionToken();
+
+                $.ajax({
+                    type:'GET',
+                    url: vipUrl,
+                    dataType:'jsonp',
+                    data:metadata
+                });
+            });
+            
+        },
+        //领取本月vip俸禄回调
+        fengluCb : function(ret){
+            var _ts = this,
+                $btnFenglu = _ts.$btnFenglu;        
+
+            if(ret['code'] === 1){
+                $btnFenglu.pop_dialog({
+                    id : 'pop_fenglu', 
+                    top : 25, 
+                    width : 270, 
+                    height : 95, 
+                    title : '我的俸禄', 
+                    content : '<p class="suc">'+ret['msg']+'</p><div class="btn"><a href="https://web.archive.org/web/20131013160501/http://www.aipai.com/payManage.php?action=record" target="_blank" class="open"></a></div>',
+                    afterShow : function(){
+                        $('#pop_fenglu').find('a').click(function(){
+                            $(this).pop_close("pop_fenglu");
+                        });
+                    }
+                });	
+            }else if(ret['code'] === 1 || ret['code'] === 3){
+                $btnFenglu.pop_dialog({
+                    id : 'pop_fenglu', 
+                    top : 25, 
+                    width : 270, 
+                    height : 95, 
+                    title : '我的俸禄', 
+                    content : '<p>'+ret['msg']+'</p><div class="btn"><a href="https://web.archive.org/web/20131013160501/http://www.aipai.com/payManage.php?action=record" target="_blank" class="open"></a></div>',
+                    afterShow : function(){
+                        $('#pop_fenglu').find('a').click(function(){
+                            $(this).pop_close("pop_fenglu");
+                        });
+                    }
+                });	
+            }else if(ret['code'] === 6){
+                $btnFenglu.pop_dialog({
+                    id : 'pop_fenglu', 
+                    top : 25, 
+                    width : 270, 
+                    height : 95, 
+                    title : '我的俸禄', 
+                    content : '<p>'+ret['msg']+'</p><div class="btn"><a href="https://web.archive.org/web/20131013160501/http://www.aipai.com/aipaiVip.php?action=process" target="_blank"></a></div>',
+                    afterShow : function(){
+                        $('#pop_fenglu').find('a').css({ background: "url(http://home.aipai.com/app/www/templates/home/css/img/pop_fl_btn.png) no-repeat"});
+                        $('#pop_fenglu').find('a').click(function(){
+                            $(this).pop_close("pop_fenglu");
+                        });
+                    }
+                });	
+            }else{
+                $btnFenglu.pop_dialog({
+                    id : 'pop_fenglu', 
+                    top : 25, 
+                    width : 270, 
+                    height : 95, 
+                    title : '我的俸禄', 
+                    content : '<p>'+ret['msg']+'</p><div class="btn"><a href="https://web.archive.org/web/20131013160501/http://www.aipai.com/aipaiVip.php?action=process" target="_blank"></a></div>',
+                    afterShow : function(){
+                        $('#pop_fenglu').find('a').click(function(){
+                            $(this).pop_close("pop_fenglu");
+                        });
+                    }
+                });
+            }	
+                
+        },
+        //Ta的个人空间：铁粉
+        tfans : function(){
+            var _ts = this,
+                $el = _ts.$el,
+                $btnTfans = $el.find('.wtu_operate .btn_tfans');
+
+            if($btnTfans.size() <=0){
+                return;
+            }
+
+            //是否续费
+            if(typeof g_topHr !== 'undefined' && parseInt(g_topHr, 10) > 0){
+                var SUPER_IDOL = Cookies.get('SUPER_IDOL');
+                if(SUPER_IDOL != null && SUPER_IDOL != '') {
+                    var bid = Cookies.get('b');
+                    SUPER_IDOL = SUPER_IDOL.split('|');
+                    if(bid == SUPER_IDOL[0])    {
+                        if(SUPER_IDOL[1] != null && SUPER_IDOL != '') {
+                            var idols = SUPER_IDOL[1].split('_');
+                            if(idols.length > 0) {
+                                for(var i in idols) {
+                                    var idol = idols[i].split('=');
+                                    if(idol[0] == g_user_bid) {
+                                        if(idol[1] > (Date.parse(new Date())/1000)) {
+                                            $btnTfans.addClass('btn_tfans_c');
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }//end
+            }
+
+        },
+        //Ta的个人空间：成为粉丝
+        fans : function(){
+            var _ts = this,
+                $el = _ts.$el,
+                $btnFans = $el.find('.wtu_operate .btn_fans');
+
+            if($btnFans.size() <=0){
+                return;
+            }
+
+            $btnFans.click(function(){
+                var obj = {
+                    _t : $(this),
+                    bid : $(this).attr('data-bid'),
+                    name : $(this).attr('data-name'),
+                    left : -100,
+                    top : 25
+                };
+                //Home.fans.init(obj);
+                checkloginNew(Home.fans.init, obj);
+            });
+        },
+        //Ta的个人空间：加为好友
+        friend : function(){
+            var _ts = this,
+                $el = _ts.$el,
+                $btnFriend = $el.find('.wtu_operate .ico_friend');
+
+            if($btnFriend.size() <=0){
+                return;
+            }
+
+            $btnFriend.click(function(){
+                var _this = this,
+                    nickname = $(this).attr('data-name'),
+                    bid = $(this).attr('data-bid'),
+                    avatar = $(this).attr('data-avatar');
+
+                checkloginNew(pop_friend,{
+                    _t : _this,
+                    name : nickname,
+                    bid :bid,
+                    avatar : avatar
+                });
+            });
+        },
+        //新作品数字显示
+        wtnav  : function (){
+           var _li = $('#wtop').find('.wtnav_l li').eq(1),
+               _new = $('#wtop').find('.ico_new'),
+               _newCss = _new.css("display"),
+               wtnav = 'wtnav' + g_user_bid,
+               wtnavBid = g_user_bid,
+               _getCookie = getCookie(wtnav);
+           if (_newCss == 'none'){
+               _li.click(function (){
+                  addCookie(wtnav,wtnavBid,24)
+                  setTimeout(function(){},1000)
+               });
+           }
+           if (_getCookie == g_user_bid){
+               _new.hide();
+           }else{
+               _new.show(); 
+           }
+        }
+        ,
+        //勋章处理
+        medal : function(){
+            var _ts = this,
+                $el = _ts.$el,
+                $medal = $el.find('.wtinfo .medal');
+
+            //IE6使用png8格式
+            if($.browser.msie && $.browser.version == '6.0' ){
+                $medal.find('img').each(function(){
+                    var src = $(this).attr('src');
+                    src = src.replace(/img\/medal\/24\//,'img/medal/8/');
+                    $(this).attr('src', src);
+                });
+            }
+        }
+    },
+    /*
+     *点歌
+     */
+    vod : {
+        target:null,
+        //现在爱拍币
+        money:0,
+        //正在进行
+        islocked:false,
+        //点歌对象
+        obid:null,
+        //送歌对象
+        forUser:{
+            fbid:null,
+            fnickname:null
+        },
+        //最少
+        leastNum:1000,
+        //提示信息组
+        tipsMsg:[],
+        //初始化点歌
+        init:function(){
+            var _ts = this;
+            //设置提示信息
+            _ts.tipsMsg = [
+                '大力支持作者，获得同意就越高！',
+                '最低'+_ts.leastNum+'爱拍币才可提交点歌申请噢！',
+                '还未输入歌名，歌手可不知道唱什么噢！',
+                '请提供歌名、歌手等信息'
+            ];
+
+            _ts.obid = (typeof g_user_bid !=="undefined") ? parseInt(g_user_bid,10) : 0;
+
+            //点歌
+            $("#btn_vod").click(function(){
+                checkloginNew(_ts.popShow,{_t:this,top:25});
+                $.ajax({
+                    type: "get",
+                    url: "https://web.archive.org/web/20131013160501/http://www.aipai.com/stats/acss/acss.php?targetUrl=&aid=123300",
+                    dataType: "jsonp"
+                });
+            });
+
+        },
+        //请求money
+        getUserInfo:function(){
+            var _ts = this;
+            var _pop_vod = $("#pop_vod");
+            //获取宝宝号
+            var bid = Cookies.get('b');
+            var for_name = decodeURIComponent(Cookies.get('n',false)); 
+            var metadatas = 'action=exchangeBean&sub=refresh&bid=' + bid;
+            $.ajax({
+                type: "get",
+                async: false,
+                url: "http://"+Home.config.host+"/space.php",
+                dataType: "jsonp",
+                data:metadatas,
+                jsonp: "callback",
+                success: function(rets){
+                    if(rets && rets['code']){
+                        _ts.money = rets['money'];
+                        _pop_vod.find(".pop_account span").text(rets['money']);
+                        _pop_vod.find(".vod_tips1 span").text(rets['money']);
+                        _pop_vod.find(".vod_notes2 span").text(rets['money']);
+
+                        //如果为自己
+                        if(_pop_vod.find(".user_sel radio:checked")){
+                            //设置为自己
+                            _pop_vod.find(".for_bid").val(bid);
+                            _pop_vod.find(".for_name").removeClass("taobhong").text("("+for_name+")");
+                        }
+
+                        _pop_vod.find(".pop_loading").hide();
+                        _pop_vod.find(".vod_con").show();
+                    }
+                },
+                error: function(){
+                    //
+                }
+            });
+        },
+        //好友用户信息
+        getFriendInfo:function(fbid,issub){
+            var _ts = this; 
+            var _pop_vod = $("#pop_vod");
+            var metadatas = 'data='+fbid; 
+            $.ajax({
+                type: "get",
+                async: false,
+                url: "http://"+Home.config.host+"/app/www/apps/userInfos.php",
+                dataType: "jsonp",
+                data:metadatas,
+                jsonp: "callback",
+                success: function(rets){
+                    if(rets && rets["code"]){
+                        _pop_vod.find('.for_bid').val(rets['bid']);
+                        _pop_vod.find('.for_name').removeClass("taohong").text('('+rets['nickname']+')').show();
+
+                        //记录当前好友
+                        _ts.forUser["fbid"] = rets['bid'];
+                        _ts.forUser["fnickname"] = rets['nickname'];
+
+                        //是否要提交
+                        if(issub){
+                            _ts.subVodData(rets['bid']);
+                        }
+                    }else{
+                        //清空
+                        _ts.forUser = {};
+                        _pop_vod.find('.for_name').addClass("taohong").text('(拍子号不存在)').show();
+                    }
+                },
+                error: function(){
+                    //
+                }
+            });
+        },
+        //选择账号
+        selectUser:function(o){
+            var _ts = this;
+            if(o){
+                var tmp = '';
+                if(o.type === '1'){
+                    //为自己
+                    var bid = Cookies.get('b') || 0,
+                    for_name = '你还未登陆'; 
+                    if(bid > 0){
+                        for_name = decodeURIComponent(Cookies.get('n',false)); 
+                        o._t.find('.for_bid').val(bid);
+                        o._t.find('.for_name').removeClass("taohong");
+                        tmp = "("+for_name+")";
+                    }else{
+                        o._t.find('.for_bid').val('');
+                        o._t.find('.for_name').text('');
+                        tmp = '(你还未登陆)'; 
+                        o._t.find('.for_name').addClass("taohong");
+                    }
+                    if(bid===0){
+                        bid = "";
+                    }
+                    o._t.find('.for_bid').addClass('disabled').attr('disabled', 'true');
+                    o._t.find('.for_name').text(tmp).show();
+                }else if(o.type === '2'){
+                    //为好友
+                    o._t.find('.for_bid').removeAttr('disabled').val('');
+                    o._t.find('.for_name').removeClass("taohong").text('(好友拍子号)').show();
+                }
+            }
+        },
+        //限制输入这数字
+        checkInputDig:function(o){
+            if(o){
+                var _val = $(o._t).val();
+                _val = $.trim(_val);
+                _val = _val.replace(/^0+/g,'');
+                _val = _val.replace(/[^\d]/g,'');
+                $(o._t).val(_val);
+            }
+        },
+        //限制输入框字数
+        checkInputSize:function(o){
+            var _ts = this;
+            if(o){
+                var str = $(o._t).val();
+                str = $.trim(str);
+                var tmpstr = "";
+                var len = 0;
+                str = str.split("");
+                if(str && str.length > 0){
+                    for(i=0;i<str.length;i++){
+                        var letters = "[0-9a-z\.\_\+]";
+                        var re = new RegExp(letters, "gi");
+                        if(re.test(str[i])){
+                            //字母
+                            len++;
+                        }else{
+                            //汉字
+                            len = len + 2;
+                        }
+                        if(len <= o.size){
+                            tmpstr += str[i];
+                        }else{
+                            break;
+                        }
+                    }
+                    //输出
+                    if(tmpstr){
+                        $(o._t).val(tmpstr);
+                    }else{
+                        $(o._t).val("");
+                    }
+                }
+            }
+        },
+        //限定位数的数字
+        isInt:function(_this,num,event,fun){
+            var _ts = this;
+            if(typeof(num) != 'number'){
+                return;
+            }
+
+            if(event.keyCode < 96 || event.keyCode > 105){
+                if(event.keyCode != 37 && event.keyCode !=39){
+                    _this.value = _this.value.replace(/[^\d]/g,'');
+                }
+            }
+            if(_this.value.length > num){
+                _this.value = _this.value.substr(0, num)   
+            }
+
+            var i = parseInt(_this.value) || 0;
+
+            fun(i,_ts.money);
+        },
+        //显示提示剩余爱拍币
+        showTips:function(msg,ismoney){
+            var _pop_vod = $("#pop_vod");
+            msg = msg || "";
+            if(ismoney){
+                _pop_vod.find('.vod_notes1').hide();
+                _pop_vod.find('.vod_notes2').show();
+            }else{
+                _pop_vod.find('.vod_notes2').hide();
+                _pop_vod.find('.vod_notes1').html(msg).show();
+            }
+        },
+        //检查是否有够爱拍币
+        checkNum:function(i,num){
+            var _ts = this;
+            var _pop_vod = $("#pop_vod");
+            var sendSum = '';
+            if (i !== ''){
+                i = parseInt(i,10);
+                num = parseInt(num,10);
+                if(i > num){
+                    _pop_vod.find('.vod_input input').val(num);
+                    _ts.showTips("",true);
+                    sendSum = num;
+                }else{
+                    _pop_vod.find('.vod_input input').val(i);
+                    sendSum = i;
+                }
+            }
+            return sendSum;
+        },
+        //弹出点歌
+        popShow:function(o){
+            var _ts = Home.vod;
+            if(o){
+                $(o._t).pop_dialog({
+                    title:"点歌",
+                    position:"down",
+                    cls:"pop_vod",
+                    id:"pop_vod",
+                    width:344,
+                    height:333,
+                    top:o.top||0,
+                    left:o.left||0,
+                    content:$("#html_pop_vod").html(),
+                    afterShow:function(){
+                        var _pop_vod = $("#pop_vod");
+
+                        //歌名提示信息
+                        if($('.pop_song label').find(':checkbox').val() == 0){
+                            _pop_vod.find(".song_name").val(_ts.tipsMsg[3]);
+                        }
+
+                        //step1:请求用户信息
+                        _ts.getUserInfo();
+
+                        //step2:账号
+                        _pop_vod.find('.user_sel input').click(function(){
+                            var o = {
+                                _t:_pop_vod,
+                                type:$(this).val()
+                            };
+                            _ts.selectUser(o);
+                        });
+                        _pop_vod.find('.user_info .for_bid').keyup(function(){
+                            _ts.checkInputDig({_t:this});
+                        }).blur(function(){
+                            var _for_bid = $(this).val();
+                            if(_for_bid!==""){
+                                _ts.getFriendInfo(_for_bid);
+                            }
+                        });
+
+                        //setp3:歌名
+                        _pop_vod.find('.song_name').keydown(function(){
+                            var o = {
+                                _t : $(this),
+                                size:36 //汉字占2，字母占1
+                            }
+                            _ts.checkInputSize(o);
+                        }).bind("click",function(){
+                            if($(this).val() === _ts.tipsMsg[3]){
+                                $(this).val("").removeClass("disabled").unbind("click");
+                            }
+                        });
+                        
+                        //随便唱一首
+                        $('.pop_song label').find(':checkbox').click(function(){	
+                            if(this.checked){													
+                                _pop_vod.find('.song_name').attr('disabled', 'true');
+                                $(this).val(1);
+                            }else{
+                                _pop_vod.find('.song_name').removeAttr('disabled');	
+                                $(this).val(0);
+                            }
+                        });	
+                        
+                        //留言
+                        var _area = _pop_vod.find('#textarea_cmt');
+                        var _max = _area.attr('maxlength');
+                        var _info = _pop_vod.find('.cmt_tips');
+                        
+                        
+                        _info.click(function(){	
+                            _info.hide();			 
+                        });
+                        
+                        _area.click(function(){	
+                            _info.hide();			 
+                        });
+                        
+                        _area.bind('keyup change', function(){
+                            var _val = $(this).val();								
+                            var _cur = _val.length;	
+                            
+                            _info.hide();
+                            $(this).val(_val.substring(0,_max));
+                            /*if(_cur == 0){
+                                _info.find('em').text(_max);
+                            }else if(_cur <= _max){
+                                _info.find('em').text(_max-_cur);
+                            }else{
+                                $(this).val(_val.substring(0,_max));
+                            }*/
+                        });
+
+                        //step4:选择费用
+                        _pop_vod.find('.vod_nums em').click(function(){
+                            var i = parseInt($(this).attr("data"));
+                            _ts.checkNum(i,_ts.money);
+                        });
+                        _pop_vod.find('.vod_input input').click(function(){
+                            _pop_vod.find('.vod_tips1').hide();
+                        }).blur(function(){
+                            var i = $(this).val();
+                            var put_num = _ts.checkNum(i,_ts.money);
+                            if(put_num < _ts.leastNum){
+                                _ts.showTips(_ts.tipsMsg[1]);
+                            }
+                        }).keyup(function(e){
+                            _ts.isInt(this,8,e,_ts.checkNum);
+                        });
+
+                        //step5:确定
+                        _pop_vod.find(".vod_con .pd_btn").bind("click",function(){
+                            if(!_ts.islocked){
+                                _ts.checkSubVod();
+                            }
+                        });
+                        _pop_vod.find(".vod_con_succ .pd_btn").bind("click",function(){
+                            _pop_vod.pop_close("pop_vod");
+                        });
+                    }
+                });
+            }
+        },
+        //数据处理,验证送歌对象 确定点歌
+        checkSubVod:function(){
+            var _ts = this;
+            var _pop_vod =$("#pop_vod"); 
+
+            //判断送歌对象
+            var _for_type = _pop_vod.find(".user_sel input:radio:checked").val();
+            var _for_bid = parseInt(_pop_vod.find(".for_bid").val(),10);
+            var _for_name = _pop_vod.find(".for_name").text();
+            _for_name = _for_name.replace(/^\(|\)$/g,"");
+            if(typeof _for_type ==="undefined"){
+                _ts.showTips("请选择点歌对象")
+                return;
+            }
+            if(_for_type==2){
+                //为好友
+                if(_ts.forUser["fbid"]!==_for_bid && _ts.forUser["fnickname"]!==_for_name){
+                    //请求并提交
+                    _ts.getFriendInfo(_for_bid,true);
+                }else{
+                    _ts.subVodData(_for_bid);
+                }
+            }else{
+                //为自己
+                _ts.subVodData(_for_bid);
+            }
+        },
+        //提交 param:for_bid
+        subVodData:function(fbid){
+            if(!fbid){
+                return;
+            }
+
+            var _ts = this;
+            var _pop_vod = $("#pop_vod");
+            
+            //随便唱一首
+            var _casual = _pop_vod.find(".pop_song label input").val();
+            
+            //判断歌名
+            var _song = _pop_vod.find(".song_name").val();
+            if(_casual == 0){
+                if(_song.length === 0 || _song ==='' || _song===_ts.tipsMsg[3]){
+                    _ts.showTips(_ts.tipsMsg[2]);
+                    return;
+                }
+            }else{
+                _ts.showTips(_ts.tipsMsg[2]);
+            }
+            _song = encodeURIComponent(_song);
+            
+            //留言
+            var _cmt =_pop_vod.find("#textarea_cmt").val();
+
+            //二次判断点歌费用
+            var _num = _pop_vod.find(".vod_money").val();
+            if(isNaN(_num) || _num < _ts.leastNum){
+                _ts.showTips(_ts.tipsMsg[1]);
+                return;
+            }
+
+            //锁住
+            _ts.islocked = true;
+            //获取宝宝号
+            var bid = Cookies.get('b');
+            bid = parseInt(bid, 10);
+            var postUrl = "http://"+Home.config.host+"/apps/vod.php";
+            var metadatas = "action=add&acceptBid="+_ts.obid;
+            metadatas += "&money="+_num+"&song="+_song+"&forBid="+fbid+"&cmt="+_cmt+"&casual="+_casual;
+            
+            if( location.href.indexOf('vip') == 7 ){
+                postUrl = 'https://web.archive.org/web/20131013160501/http://vip.aipai.com/apps/vod.php';
+            }
+            
+            //发送请求
+            $.ajax({
+                type: "POST",
+                url: postUrl,
+                dataType: "json",
+                data:metadatas,
+                //回调提交处理
+                success:function(rets){
+                    //rets={"code":true,"url":"https://web.archive.org/web/20131013160501/http://www.aipai.com/"};
+                    if(rets){
+                        if(parseInt(rets["code"],10)===0){
+                            _ts.resizePop("pop_vod",344,125);
+                            _pop_vod.find(".link_song").attr("href","https://web.archive.org/web/20131013160501/http://www.aipai.com/space.php?action=vod&sort=list");
+                            _pop_vod.find(".vod_con").hide();
+                            _pop_vod.find(".vod_con_succ").show();
+                        }else{
+                            //解锁
+                            _ts.islocked = false;
+                            _pop_vod.pop_alert({
+                                title:"提示",
+                                msg:rets['msg']
+                            });
+                        }
+                    }
+                    //解锁
+                    _ts.islocked = false;
+                },
+                error:function(){
+                    //解锁
+                    _ts.islocked = false;
+                }
+            });
+        },
+        //调整大小
+        resizePop:function(id,width,height){
+            $("#"+id).pop_reset(id,width,height);
+        }
+    },
+    //成为粉丝
+    fans : {
+        obj : null,
+        init : function(o){
+            var _ts = Home.fans,
+                bid = o.bid;
+                nickname = o.name,
+                position = 'down';
+
+            if(typeof o.position !== 'undefined' && o.position === 'center'){
+                position = 'center';
+            }else{
+                o.position = 'down';
+            }
+            _ts.obj = o;
+
+            function subscribe_new(bid) {
+                if( Cookies.get("b") === null ) {
+                    //temBid = bid;
+                    return false;		
+                }
+
+                if(bid == Cookies.get("b")) {
+                    $(o._t).pop_alert({
+                        title:'出错提示',
+                        position : position,
+                        top : fans_o.top || 50,
+                        left : fans_o.left || -150,
+                        msg:'不能成为自己的粉丝哦：）'
+                    });
+                    return false;
+                }
+
+                var getUrl = 'http://'+Home.config.host+'/app/www/apps/subscribe.php';
+                var metadata;
+                metadata = 'bid='+bid+'&atoken='+getActionToken();
+                metadata = metadata+'&callback=Home.fans.scribeSuccess_new&action=addSubscribe'; 
+                $.ajax({
+                    type: "GET",		
+                    url: getUrl,
+                    dataType: 'jsonp',
+                    data: metadata
+                });
+                return true;
+            }
+
+            //弹出层
+            $(o._t).pop_dialog({
+                width : 280,
+                height : 94,
+                position : position,
+                top : o.top || 50,
+                left : o.left || -150,
+                content : $('#html_pop_fans').html(),
+                id : 'pop_fans_'+bid,
+                cls : 'pop_fans',
+                title : '成为'+nickname+'的粉丝',
+                afterShow : function(opt){
+                    var $pop = $('#'+opt.id);
+
+                    //替换用户名
+                    $pop.find('.fri_name').html(nickname).attr('href','https://web.archive.org/web/20131013160501/http://www.aipai.com/space.php?bid='+bid);
+                        $pop.find('.pd_btn2').click(function(){
+                        $(this).pop_close(opt.id);
+                    });
+
+                    //提交请求
+                    $pop.find('.pd_btn').click(function(){
+                        subscribe_new(bid);
+                    });
+                    
+                }
+            });
+            
+        },
+        //回调fun
+        scribeSuccess_new : function(ret) {
+            var _ts = this,
+                fans_o = _ts.obj;
+
+            if(parseInt(ret['code'],10) === 0) {
+                $(fans_o._t).pop_alert({
+                    title:'成功提示',
+                    position : fans_o.position,
+                    top : fans_o.top || 50,
+                    left : fans_o.left || -150,
+                    msg:'加入成功！<br />如果你的偶像作品有更新，系统消息会自动通知你：）<br />查看 <span class="pd_link"><a href=http://www.aipai.com/space.php?action=subscribe&sub=myStar target="_blank">我的偶像</a></span> 列表。',
+                        height:140
+                });
+            }
+            else if(ret['code'] == 8401 ) {
+                $(fans_o._t).pop_alert({
+                    title:'系统提示',
+                    position : fans_o.position,
+                    top : fans_o.top || 50,
+                    left : fans_o.left || -150,
+                    msg:'你已经是该用户的忠实粉丝了。<br />你的偶像一有好作品推出，系统消息都会第一时间通知到你！',
+                    height:120
+                });
+            }	else {
+                $(fans_o._t).pop_alert({
+                    title:'出错提示',
+                    position : fans_o.position,
+                    top : fans_o.top || 50,
+                    left : fans_o.left || -150,
+                    msg:'网络传输出错,请重新再试或者联系管理员。'
+                });
+            }
+        }
+    }
+}
+function addCookie(objName,objValue,objHours){      //添加cookie
+	 
+    var str = objName + "=" + escape(objValue);
+ 
+    if(objHours > 0){                               //为时不设定过期时间，浏览器关闭时cookie自动消失
+ 
+        var date = new Date();
+ 
+        var ms = objHours*3600*1000;
+ 
+        date.setTime(date.getTime() + ms);
+ 
+        str += "; expires=" + date.toGMTString();
+ 
+   }
+ 
+   document.cookie = str;
+ 
+}
+function getCookie(objName){//获取指定名称的cookie的值
+ 
+    var arrStr = document.cookie.split("; ");
+ 
+    for(var i = 0;i < arrStr.length;i ++){
+ 
+        var temp = arrStr[i].split("=");
+ 
+        if(temp[0] == objName) return unescape(temp[1]);
+ 
+   }
+ 
+}
+function CheckWords(){
+    var _wordLeft = $("#pop_sign").find("#msgWordLeft02");
+    if(_wordLeft.length > 0){
+        var _length = $("#pop_sign").find("#msgContent02").val().length;
+        _wordLeft.text("剩余"+(30-_length)+"字");
+    }
+}
+
+
+//入口
+$(function(){
+
+    Home.init();
+    
+    //判断福利查询、消息中心、作品、图集、专辑、拍单、日志加锚点
+    if( (window.location.href.split("#")[1]) == 'go_nav' ){
+        $('body,html').animate({scrollTop : 300},800);
+    }    
+});
+
+
+}
+
+/*
+     FILE ARCHIVED ON 16:05:01 Oct 13, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 19:27:03 Sep 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.437
+  load_resource: 521.42
+  PetaboxLoader3.resolve: 461.043
+  PetaboxLoader3.datanode: 58.768
+*/

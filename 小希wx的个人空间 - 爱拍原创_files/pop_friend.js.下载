@@ -1,0 +1,138 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+var baseUrl_app = "http://"+location.host+"/";
+
+var needCaptcha = 0;
+var html_pop_friend = '<div class="friend_con"><div class="fri_con"><div class="fri_info"><img class="fri_avatar" src="https://web.archive.org/web/20131013140904/http://www.aipai.com/app/www/templates/common/img/s.png" alt="" width="48" height="48" />确定要添加 <a class="fri_name" target="_blank" href="#">作者</a> 为好友吗？<br /><br />好友请求附言：</div><textarea>Hi，很高兴认识你^^，加我啊。记得回踩我的空间喔。</textarea></div><div class="auth_codew hidden"><label class="suf_wl" for="auth_code">验证码</label><div class="suf_wr"><input name="auth_code" class="auth_code" maxlength="4" tabindex="17" value="" type="text"><div class="code_imgw"><a href="javascript:getAuthimg(\'pop_friend\');"><img src="https://web.archive.org/web/20131013140904/http://www.aipai.com/app/www/templates/common/img/s.png" title="换一个" class="auth_img" height="42" width="120"></a></div></div></div><div class="pop_btns"><span class="tips hidden">请输入验证码</span><span class="pd_btn2">取消</span><span class="pd_btn">确定</span></div></div>';
+
+//获取验证码
+function getAuthimg(id){
+    $('#'+id+' .auth_code').val('').focus();
+    var img = $('#'+id+' .auth_img');
+    if(img.get(0)){
+        img.attr('src','https://web.archive.org/web/20131013140904/http://www.aipai.com/app/www/common/captcha.php?w=140&h=36&rid=' + Math.random());
+    }
+}
+
+/*==================================
+ *  加好友 
+ * ================================*/
+function pop_friend(o){
+	if (o.bid == Cookies.get('b'))
+	{
+		$(o._t).pop_alert({title:'温馨提示',position:'down',top:18,left:-80,msg:"不能加自己为好友哦。"});
+		return false;
+	}
+    var _nickname = o.name,_bid = o.bid,_avatar = o.avatar.replace(/_middle/g,'_big');
+
+    function addFriendSuccess(ret){
+        var msg = ret['msg'];
+        if(ret['code'] === 28){
+            needCaptcha = 1;
+            //显示验证码
+            getAuthimg('pop_friend');
+            var _pf = $('#pop_friend');
+            $(this).pop_reset('pop_friend', 340, 233);
+            $('.auth_codew',_pf).show();
+            $('.pop_btns .tips',_pf).html('请输入验证码').show();
+            return false;
+        }else if(ret['code'] === 29){
+            msg = '你加好友太快了哦，请稍后再来加他好友吧：）'; 
+        }else if(ret['code'] === 30){
+            needCaptcha = 1;
+            var _pf = $('#pop_friend');
+            $(this).pop_reset('pop_friend', 340, 233);
+            getAuthimg('pop_friend');
+            $('.auth_codew',_pf).show();
+            $('.pop_btns .tips',_pf).html('验证码不正确').show();
+            return false;
+        } 
+        $(o._t).pop_alert({title:'系统提示',position:'down',top:18,left:-80,msg:msg});
+    }
+    function pop_friend_after(){
+        var _pf = $('#pop_friend');
+        $('.fri_avatar',_pf).attr('src',_avatar);
+        $('.fri_name',_pf).html(_nickname).attr('href','https://web.archive.org/web/20131013140904/http://www.aipai.com/space.php?bid='+_bid);
+        $('.pd_btn2',_pf).click(function(){
+            $(this).pop_close('pop_friend');
+        });
+        //显示验证码
+        if(needCaptcha ===1 ) {
+            getAuthimg('pop_friend');
+            $(this).pop_reset('pop_friend', 340, 233);
+            $('.auth_codew',_pf).show();
+        }
+        //提交请求
+        $('.pd_btn',_pf).click(function(){
+			var t = $('textarea',_pf).val();
+            friendUrl = baseUrl_app+"apps/friend.php";
+			metadata = '{"tobid":'+_bid+',"action":"add","adword":"'+t+'"}';
+			metadata = 'metadata='+metadata+'&atoken='+getActionToken();
+
+            //判断验证码
+            if(needCaptcha === 1) {
+               //验证验证码
+                var auth_code = $.trim($('.auth_code',_pf).val());
+                if(auth_code.length !== 4){
+                    $('.pop_btns .tips',_pf).html('请输入4位验证码').show();
+                    return false;
+                }
+
+                //提交的参数添加验证码
+                metadata = metadata+'&auth_code='+auth_code;
+            }
+
+			$.ajax({
+				type: "POST",		
+				url: friendUrl,
+				dataType: 'jsonp',
+				data: metadata,
+			   error: function(msg)
+			   {
+					$(o._t).pop_alert({title:'出错提示',top:18,left:-80,position:'down',msg:'请检查网络或联系管理员。'});
+			   },
+			   success: addFriendSuccess
+			});			
+        });
+    }
+
+	//弹出层
+    $(o._t).pop_dialog({
+        width : 340,
+        height : 183,
+        top : 18,
+        left : 0,
+        content : html_pop_friend,
+        id  : 'pop_friend',
+        cls : 'pop_friend',
+        title : '加'+_nickname+'为好友',
+        afterShow : pop_friend_after
+    });
+    return false;
+}
+
+
+}
+
+/*
+     FILE ARCHIVED ON 14:09:04 Oct 13, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 19:27:02 Sep 23, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.409
+  load_resource: 69.306
+  PetaboxLoader3.resolve: 44.281
+  PetaboxLoader3.datanode: 24.584
+*/
