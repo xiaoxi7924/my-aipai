@@ -1,0 +1,26 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+"use strict";!function(){var n,i;n=$(".header"),i=null,function(){$(0<arguments.length&&void 0!==arguments[0]?arguments[0]:".new-car-menu-box").length<1||(window.Utils.Device.isMobile()||n.find(".new-car-menu").hover(function(e){e.stopPropagation(),e.preventDefault(),clearTimeout(i),n.find("header").css({backgroundColor:"#fff"}),n.find(".new-car-menu-box").show(),n.find("header").addClass("menu-black"),$("body").css({overflow:"hiddden",height:"100vh"}),i=setTimeout(function(){n.find(".new-car-menu-box .new-menu-item").eq(0).addClass("cur").siblings().removeClass("cur"),n.find(".new-car-menu-box .new-menu-children-item").eq(0).addClass("cur").siblings().removeClass("cur")},0)},function(){n.find("header").css({backgroundColor:""}),n.find(".new-car-menu-box").hide(),$(window).scrollTop()<50&&n.find("header").removeClass("menu-black"),$("body").css({overflow:"auto",height:"auto"}),n.find(".new-car-menu-box .new-menu-item").removeClass("cur")}),n.find(".new-car-menu-box .new-menu-item span").on("click",function(e){e.stopPropagation(),e.preventDefault();e=$(this).parent();if(e.hasClass("cur"))return e.removeClass("cur"),void e.find(".new-menu-children-item").removeClass("cur");e.addClass("cur").siblings().removeClass("cur"),e.find(".new-menu-children-item").eq(0).addClass("cur").siblings().removeClass("cur")}),n.find(".new-car-menu-box .new-menu-children-item").on("click",function(e){e.stopPropagation(),e.preventDefault(),$(this).addClass("cur").siblings().removeClass("cur")}),n.find(".children-btn a").on("click",function(e){e.stopPropagation(),e.preventDefault();e=$(this).attr("href");"_blank"===$(this).attr("target")?window.open(e):window.location.href=e}))}()}();
+}
+
+/*
+     FILE ARCHIVED ON 02:52:41 Apr 25, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 13:54:54 Oct 20, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.384
+  load_resource: 45.584
+  PetaboxLoader3.datanode: 24.009
+*/

@@ -1,0 +1,27 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+"use strict";$(function(){$(".power-recommend").each(function(){var n,i,o,e,c,s;n=this,n=$(n),s=n.find(".recommend-details"),$(".AddClick").click(function(){}),s.click(function(){}),s.fadeOut(),i=n.find(".content-wrapper"),o=$(window).height(),n.css({paddingBottom:2*s.innerHeight()}),e=n.innerHeight(),c=n.offset().top,$(window).scroll(function(){var n=$(window).scrollTop(),t=o-e-(c-n);c<n&&(i.css({position:"fixed",transform:"translate3d(0,0,0)"}),c<n-200?s.fadeIn():s.fadeOut()),(0<t||n<c)&&i.css({position:"absolute"}),0<t&&i.css({transform:"translate3d(0,".concat(e-s.innerHeight(),"px,0)")})})})});
+}
+
+/*
+     FILE ARCHIVED ON 03:03:07 Oct 08, 2024 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 13:54:54 Oct 20, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.572
+  load_resource: 49.148
+  PetaboxLoader3.resolve: 34.556
+  PetaboxLoader3.datanode: 13.505
+*/

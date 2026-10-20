@@ -1,0 +1,27 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+"use strict";function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _defineProperties(e,t){for(var i=0;i<t.length;i++){var r=t[i];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function _createClass(e,t,i){return t&&_defineProperties(e.prototype,t),i&&_defineProperties(e,i),Object.defineProperty(e,"prototype",{writable:!1}),e}!function(){var e=function(){function e(){_classCallCheck(this,e),this.request=new window.Geely.Request(window.Geely.config.apiHost||"")}return _createClass(e,[{key:"getAllSeries",value:function(){return this.request.get("/api/geely/official/common/getSeries")}},{key:"getAllNewSeries",value:function(){return this.request.get("/api/geely/galaxy/common/getSeries")}},{key:"getProvinceList",value:function(){return this.request.get("/api/geely/official/common/GetArea")}},{key:"getIMProvinceList",value:function(){return this.request.get("/api/geely/official/common/GetAreaNew")}},{key:"getCityList",value:function(e){return this.request.get("/api/geely/official/common/GetArea",{regionId:e})}},{key:"getIMCityList",value:function(e){return this.request.get("/api/geely/official/common/GetAreaNew",{regionId:e})}},{key:"getCityListGalaxy",value:function(e){return this.request.get("/api/geely/galaxy/common/getArea",{regionId:e})}},{key:"getDealer",value:function(e){return this.request.get("/api/geely/official/common/GetDealerListNew",e)}},{key:"getDealerGalaxy",value:function(e){return this.request.get("/api/geely/galaxy/common/GetDealerList",e)}},{key:"getBigCustomerDealer",value:function(e){return this.request.get("/api/geely/official/common/GetDealerListNew",e)}},{key:"getBatteryRecycle",value:function(e){return this.request.get("/api/geely/official/common/GetBatteryRecycle",e)}},{key:"GetServiceProviderList",value:function(e){return this.request.get("/api/geely/official/common/GetServiceProviderList",e)}},{key:"postBigCustomer",value:function(e){return this.request.post("/api/geely/official/bigCustomer/save",e)}},{key:"postTestDrive",value:function(e){return this.request.post("/api/geely/official/TestDrive/Save",e)}},{key:"postTestNewDrive",value:function(e){return this.request.post("/api/geely/galaxy/TestDrive/save",e)}},{key:"GetSpBomList",value:function(e){return this.request.get("/api/Geely/Official/Common/GetSpBomList",{SpCode:e})}},{key:"getNewsDataList",value:function(e){return this.request.post("/api/geely/official/News/getNews",e)}},{key:"saveTestDrive",value:function(e){return this.request.post("/api/geely/official/TestDrive/save",e)}},{key:"getActivity",value:function(e){return this.request.post("/api/geely/official/News/GetActivity",e)}},{key:"getGalaxySeries",value:function(){return this.request.get("/api/geely/galaxy/common/getSeries")}}]),e}();window.Geely=window.Geely||{},window.Geely.API=new e}();
+}
+
+/*
+     FILE ARCHIVED ON 02:52:37 Apr 25, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 13:54:52 Oct 20, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.337
+  load_resource: 158.46
+  PetaboxLoader3.resolve: 115.2
+  PetaboxLoader3.datanode: 31.027
+*/

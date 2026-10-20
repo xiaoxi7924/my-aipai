@@ -1,0 +1,27 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+"use strict";!function(){t=null,$(document).on("mousewheel DOMMouseScroll",function(e){t=e.originalEvent.wheelDelta&&(0<e.originalEvent.wheelDelta?1:-1)||e.originalEvent.detail&&(0<e.originalEvent.detail?-1:1)});var t,a,e=function(){$(".aImage").css({transform:"translate(-50%,-50%) scale(1)"}),$(window).scroll(function(){var e=document.documentElement.scrollTop||window.pageYOffset||document.body.scrollTop,n=e-$(".brand-history").offset().top;(t<0||a<e)&&n<800&&0<n||0<n&&n<1e3?$(".aImage").css({transform:"translate(-50%,-50%) scale(1)"}):$(".aImage").css({transform:"translate(-50%,-50%) scale(.5)"}),a=e})};(a=0)<$(".brand-history").length&&e()}();
+}
+
+/*
+     FILE ARCHIVED ON 11:11:32 Apr 30, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 13:54:55 Oct 20, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.434
+  load_resource: 158.687 (2)
+  PetaboxLoader3.resolve: 89.754 (2)
+  PetaboxLoader3.datanode: 65.63 (2)
+*/

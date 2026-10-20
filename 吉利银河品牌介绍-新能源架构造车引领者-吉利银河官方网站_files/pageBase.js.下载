@@ -1,0 +1,26 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+"use strict";!function(){$(".page-content");$(window).trigger("scroll"),window.Geely.tracking.trackPageView();var e=document.documentElement.clientHeight||document.body.clientHeight,t=(Utils.Device.isMobile()&&Utils.Device.isAndroid()&&(window.onresize=function(){+(document.documentElement.clientHeight||document.body.clientHeight)<+e-200?($("body")[0].style.overflow="hidden",$("#footer")[0].style.display="none",$(".hide-bottom-html")[0].style.display="none",setTimeout(function(){$("#car-header .car-menu").addClass("header-noshow").removeClass("header-show")},300)):($("body")[0].style.overflow="auto",$("#footer")[0].style.display="block",$(".hide-bottom-html")[0].style.display="block")}),window.innerHeight),i=(document.documentElement.style.setProperty("--vh","".concat(t,"px")),window.addEventListener("resize",function(){t<window.innerHeight&&(t=window.innerHeight,document.documentElement.style.setProperty("--vh","".concat(t,"px")))}),$("#sidebar")),o=(i.find(".set-top").on("click",function(){$("html, body").animate({scrollTop:0},500)}),Utils.Device.isMobile()||i.find(" .sidebar-item").hover(function(){$(this).addClass("active")},function(){$(this).removeClass("active")}),{timer1:null,timer2:null}),n=i.find(".sidebar-item:eq(0) img.animate"),s=i.find(".sidebar-item:eq(0) img.default"),r=i.find(".sidebar-item:eq(0) .active-box"),a=!1;$(window).on("scroll",function(){$(window).scrollTop()>=$(window).height()/3*2?(i.addClass("show"),0<n.length&&(i.find(".sidebar-item:eq(0) img.active").attr("src",n.attr("src")),o.timer1=setTimeout(function(){s.addClass("opacity0"),n.addClass("opacity1"),a||r.hasClass("current")||(a=!0,r.addClass("current"),o.timer2=setTimeout(function(){r.removeClass("current")},2500))},500))):(i.removeClass("show"),i.find(".sidebar-item:eq(0) img.default").removeClass("opacity0"),i.find(".sidebar-item:eq(0) img.animate").removeClass("opacity1"),i.find(".sidebar-item:eq(0) .active-box").removeClass("current"),clearTimeout(o.timer1),clearTimeout(o.timer2),a=!1)}),0<$("#car-header").length&&$("#sidebar .sidebar-item.test-drive").attr("target","").attr("href","#testDrive"),$("select").on("change",function(){""!==$(this).val()?$(this).css({color:"#333"}):$(this).css({color:"#999"})})}();
+}
+
+/*
+     FILE ARCHIVED ON 02:52:40 Apr 25, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 13:54:53 Oct 20, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.421
+  load_resource: 22.32
+  PetaboxLoader3.datanode: 19.704
+*/

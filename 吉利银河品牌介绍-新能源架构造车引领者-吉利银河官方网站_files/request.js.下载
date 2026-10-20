@@ -1,0 +1,26 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+"use strict";function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _defineProperties(e,t){for(var n=0;n<t.length;n++){var a=t[n];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(e,a.key,a)}}function _createClass(e,t,n){return t&&_defineProperties(e.prototype,t),n&&_defineProperties(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}!function(){var e=function(){function t(e){_classCallCheck(this,t),this.host=e||""}return _createClass(t,[{key:"get",value:function(e){e={url:this.host+e,type:"GET",dataType:"json",data:1<arguments.length&&void 0!==arguments[1]?arguments[1]:{}};return $.ajax(e)}},{key:"post",value:function(e){var t=1<arguments.length&&void 0!==arguments[1]?arguments[1]:{},e={url:this.host+e,type:"POST",dataType:"json",data:t};return $.ajax(e)}}]),t}();window.Geely=window.Geely||{},window.Geely.Request=e}();
+}
+
+/*
+     FILE ARCHIVED ON 02:52:24 Apr 25, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 13:54:46 Oct 20, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.427
+  load_resource: 27.853
+  PetaboxLoader3.datanode: 26.552
+*/

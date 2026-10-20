@@ -1,0 +1,27 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+"use strict";!function(e,t){var n,i=t.documentElement,d=e.devicePixelRatio||1;function o(){var e=i.clientWidth/19.2;i.clientWidth<=750&&(e=i.clientWidth/7.5),i.style.fontSize=e+"px"}!function e(){t.body?t.body.style.fontSize=12*d+"px":t.addEventListener("DOMContentLoaded",e)}(),o(),e.addEventListener("resize",o),e.addEventListener("pageshow",function(e){e.persisted&&o()}),2<=d&&(e=t.createElement("body"),(n=t.createElement("div")).style.border=".5px solid transparent",e.appendChild(n),i.appendChild(e),1===n.offsetHeight&&i.classList.add("hairlines"),i.removeChild(e))}(window,document);
+}
+
+/*
+     FILE ARCHIVED ON 02:52:16 Apr 25, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 13:54:46 Oct 20, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.369
+  load_resource: 68.958
+  PetaboxLoader3.resolve: 45.589
+  PetaboxLoader3.datanode: 21.197
+*/

@@ -1,0 +1,26 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+"use strict";!function(){var n;n={},function(){var e=0<arguments.length&&void 0!==arguments[0]?arguments[0]:".model-menu";$(e).length<1||(n=$(e),$(".header").find(".car-model").hover(function(e){$(".header header").css({backgroundColor:"#fff"}),$(".header").find(".model-menu").show(),$(".header").find("header").addClass("menu-black"),n.find(".model-menu-head ul li").eq(0).addClass("active").siblings().removeClass("active"),n.find(".model-menu-section").eq(0).show().siblings(".model-menu-section").hide(),$("body").css({overflow:"hiddden",height:"100vh"})},function(){$(".header header").css({backgroundColor:""}),$(".header").find(".model-menu").hide(),$(window).scrollTop(),$(".header").find("header").removeClass("menu-black"),$("body").css({overflow:"auto",height:"auto"})}),n.find(".model-menu-head ul li").on("click",function(e){var d=$(e.currentTarget).index();$(e.currentTarget).hasClass("active")||(n.find(".model-menu-head ul li").eq(d).addClass("active").siblings().removeClass("active"),n.find(".model-menu-section").eq(d).show().siblings(".model-menu-section").hide())}))}()}();
+}
+
+/*
+     FILE ARCHIVED ON 02:52:41 Apr 25, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 13:54:54 Oct 20, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.382
+  load_resource: 42.737
+  PetaboxLoader3.datanode: 42.175
+*/
